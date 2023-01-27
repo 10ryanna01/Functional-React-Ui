@@ -1,0 +1,27 @@
+
+.UI__icon{
+
+    &__s{
+        max-width:40px;
+        display: block; 
+    }
+    &__m{
+        max-width:60px;
+        display: block; 
+    }
+    &__l{
+        max-width:100px;
+        display: block;        
+    }
+}
+
+
+
+
+.UI__offcanvas {
+ border: 3px solid gold;
+ width: 300px;
+ height: 100%;
+ display: none;
+
+}
