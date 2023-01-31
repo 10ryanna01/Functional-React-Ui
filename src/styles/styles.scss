@@ -1,4 +1,57 @@
 
+$defaultbg: #282c34;
+$defaulttext: #fff;  
+
+.App-header {
+    background-color: $defaultbg;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: $defaulttext;
+  }
+
+
+  
+.wrapper.UI{
+
+
+    &__toggle-theme{
+        &__dark{
+          
+            *{
+                $defaultbg: black;
+            $defaulttext: #fff;
+            /* theme */
+            background: $defaultbg !important;
+            background-color: $defaultbg  !important;
+            color: $defaulttext!important;
+        
+            svg{
+                fill: transparent;
+                stroke: magenta;
+             }    
+        }
+        }
+
+        &__light{
+            *{
+         background: red !important;
+         color: white !important;
+
+         svg{
+            fill: transparent;
+            stroke: gold;
+         }
+        } 
+        }
+    }
+
+}
+
+
 .UI__icon{
 
     &__s{

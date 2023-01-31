@@ -1,35 +1,26 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useContext, useState } from "react";
+import { DarkModeContext } from "./context/DarkModeContext";
 import { Global } from "@emotion/react";
 import { GlobalStyles } from "./styles/globalstyles";
+import Header from "./components/Header";
+import "./App.css";
 import "./styles/styles.scss";
 
-import MainNav from "./components/MainNav";
-import { Moon, Sun } from "./assets/Index";
-
 function App() {
+  const [darkMode, setDarkMode] = useContext(DarkModeContext);
+  console.log("activated darkmode", darkMode);
   return (
     <>
-      <div className="App">
+      <div
+        className={`wrapper ${
+          darkMode
+            ? "UI__toggle-theme__dark"
+            : "UI__toggle-theme__light"
+        }`}
+      >
         <Global styles={GlobalStyles} />
-
-        <header className="App-header dude">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <Moon className="UI__icon__l" />
-          <Sun className="UI__icon__l" />
-          <MainNav />
-        </header>
+        <span className={darkMode}>what themse is this</span> hello world
+        <Header   />
       </div>
     </>
   );
