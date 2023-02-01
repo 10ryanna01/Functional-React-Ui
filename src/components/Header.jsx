@@ -5,16 +5,17 @@ import ToggleTheme from "./ToggleTheme";
 export default function Header() {
   return (
     <>
-     {/*  <ToggleTheme /> */}
-      <header className="App-header dude">
-        <div className="UI__header__logo">
-          <Logo className="App-logo" alt="logo" />
-        </div>
+      {/*  <ToggleTheme /> */}
+      <header className="UI__header">
+        <Logo className="UI__header__logo" alt="logo" />
+
         <div className="UI__header__title">
-          <h1>Demo UI</h1>
+          <h1 className="UI__header__title__copy">Demo UI</h1>
         </div>
-<ToggleTheme />
+
         <MainNav />
+
+        <ToggleTheme />
       </header>
     </>
   );

@@ -1,38 +1,13 @@
-import React, {useState, useEffect, useRef} from 'react'
+import { useState, useEffect, useRef } from "react";
 
-export default function OffCanvas() {
+export default function OffCanvas({children}) {
 
-    let [isOpenToggleNavMenu, setIsopenToggleNavMenu] = useState(false)
-
-    let [menuAnimate, setMenuAnimate] = useState(
-        " animate__animated animate__fadeIn animate__faster"
-      )
-      const [menuAnimateCC, setMenuAnimateCC] = useState(
-        " animate__animated animate__fadeIn animate__faster"
-      )
-      const [menuAnimateCCexit, setmenuAnimateCCexit] = useState(
-        " animate__animated animate__bounceIn"
-      )
-    
-      let [menuAnimateClose, setmenuAnimateClose] = useState()
-    
-
-
-    const handleToggleNavMenu = e => {
-        setIsopenToggleNavMenu(true)
-        e.stopPropagation()
-      }
-
-
-
-    return (
-
+  return (
     <>
-    <div className="UI__offcanvas"><h2>OffCanvas Nav</h2>
-
-
-
-    </div>
+      <div className="UI__off-canvas">
+       {children}
+      </div>
     </>
-  )
+  );
 }
+

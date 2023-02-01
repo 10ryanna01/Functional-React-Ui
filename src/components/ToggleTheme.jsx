@@ -1,10 +1,11 @@
-import { useContext } from "react";
-import { Moon, Sun } from "../assets/Index";
+import { useContext, useState } from "react";
+import { Moon, Sun, IconDarkMode } from "../assets/Index";
 import { DarkModeContext } from "../context/DarkModeContext";
 
 export default function ToggleTheme() {
   // const [theme, setTheme] = useState("UI__toggle-theme__dark");
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
+  const [altMode, setAltMode] = useState(false);
   const handletoggleThemeDark = () => {
     /*  setTheme((theme) =>
       theme === "UI__toggle-theme__light"
@@ -13,30 +14,26 @@ export default function ToggleTheme() {
         
     ); */
     setDarkMode(true);
+    setAltMode(true);
   };
 
   const handletoggleThemeLight = () => {
     setDarkMode(false);
   };
 
-  
-  const handletoggleThemeCyberPunk = () => {
-    setDarkMode(false);
-  };
   return (
-    <div>
-      ToggleTheme
-      <div className="UI__toggle-theme">
+    <>
+      <div className="UI__header__theme ">
         {darkMode ? (
-          <div onClick={handletoggleThemeLight}>
-            <Sun className="UI__icon__l" />
+          <div onClick={handletoggleThemeLight} className="UI__icon__l">
+            <Sun />
           </div>
         ) : (
-          <div onClick={handletoggleThemeDark}>
-            <Moon className="UI__icon__l" />
+          <div onClick={handletoggleThemeDark} className="UI__icon__l">
+            <IconDarkMode />
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
