@@ -135,8 +135,8 @@ $Brand-Color-TransparentBackground: transparent !important;
 
   &__header {
     display: grid;
-    grid-template-areas: "siteLogo siteTitle  siteNav siteTheme";
-    grid-template-columns: 75px 200px 1fr 40px;
+    grid-template-areas: "siteLogo siteTitle  siteNav accNav siteTheme";
+    grid-template-columns: 75px 200px 1fr 100px 40px;
     width: 100%;
     max-width: 100%;
     align-items: center;
@@ -161,6 +161,10 @@ $Brand-Color-TransparentBackground: transparent !important;
       grid-area: siteNav;
 
       border: 1px solid green;
+    }
+    &__acc-nav{
+        grid-area: accNav;
+
     }
     &__theme {
       grid-area: siteTheme;

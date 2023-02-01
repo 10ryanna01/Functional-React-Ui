@@ -5,6 +5,8 @@ import { DarkModeContext } from "../context/DarkModeContext";
 export default function ToggleTheme() {
   // const [theme, setTheme] = useState("UI__toggle-theme__dark");
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
+  
+  
   const [altMode, setAltMode] = useState(false);
   const handletoggleThemeDark = () => {
     /*  setTheme((theme) =>

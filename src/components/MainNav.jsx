@@ -10,7 +10,7 @@ export default function MainNav() {
          <OffCanvas>
           <nav className="UI__primary-nav">
             <ul className="UI__primary-nav__list">
-              <li className="UI__primary-nav__list__item">Search</li>
+ 
               <li className="UI__primary-nav__list__item">Explore</li>
               <li className="UI__primary-nav__list__item">Ask an AI</li>
               <li className="UI__primary-nav__list__item">
@@ -19,6 +19,7 @@ export default function MainNav() {
             </ul>
           </nav>
           </OffCanvas>
+
         </div>
 
     </>

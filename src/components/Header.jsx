@@ -1,5 +1,6 @@
 import React from "react";
 import { Logo } from "../assets/Index";
+import AccountNav from "./AccountNav";
 import MainNav from "./MainNav";
 import ToggleTheme from "./ToggleTheme";
 export default function Header() {
@@ -14,6 +15,7 @@ export default function Header() {
         </div>
 
         <MainNav />
+        <AccountNav />
 
         <ToggleTheme />
       </header>
