@@ -15,14 +15,16 @@ export default function AccountSignUpStepper() {
 
   return (
     <div className="UI__signup-form">
-      <div>
-        <h2 className="UI__signup-form__title">Lets set up your account</h2>
+    <div className="UI__signup-form__header">
+    <h2 className="UI__signup-form__header__title">Lets set up your account</h2>
 
         <span>add progress stepper here</span>
+      
       </div>
+    <div className="UI__signup-form__body"> 
 
-      <form className="UI__form__input-row">
-        <div className="UI__form__input-row">
+      <form className="UI__form__content">
+        <div className="UI__form__content__input-row">
           <label htmlFor="signup__userName">User Name</label>
 
           <input
@@ -36,7 +38,7 @@ export default function AccountSignUpStepper() {
           />
         </div>
 
-        <div className="UI__form__input-row">
+        <div className="UI__form__content__input-row">
           <label htmlFor="signup__userEmail">Email</label>
 
           <input
@@ -49,7 +51,7 @@ export default function AccountSignUpStepper() {
           />
         </div>
 
-        <div className="UI__form__input-row">
+        <div className="UI__form__content__input-row">
           <label htmlFor="signup__userEmailConfirm">Confirm Email</label>
 
           <input
@@ -62,6 +64,7 @@ export default function AccountSignUpStepper() {
           />
         </div>
       </form>
+    </div>
     </div>
   );
 }

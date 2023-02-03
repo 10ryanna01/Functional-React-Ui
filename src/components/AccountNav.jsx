@@ -51,13 +51,13 @@ let userSignUpRef = useRef();
               className="UI__header__acc-nav__list__item"
               onClick={handleSignUpStepper}
             >
-              <IconAddUser />
-              <h3>sign up</h3>
+              <IconAddUser className="UI__header__acc-nav__list__item__icon" />
+              <h3 className="">sign up</h3>
             </div>
 
             <div onClick={handleLogIn}>
-              <IconLogin />
-              <h3>sign in</h3>
+              <IconLogin className="UI__header__acc-nav__list__item__icon" />
+              <h3 className="">sign in</h3>
             </div>
           </ul>
         ) : (

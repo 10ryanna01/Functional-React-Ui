@@ -1,0 +1,49 @@
+$--Brand-Color-Background: --Brand-Color-Background;
+$--Brand-Color-Copy-Body: --Brand-Color-Copy-Body;
+$--Brand-Color-Copy-Title: --Brand-Color-Copy-Title;
+$--Brand-Color-Copy-Link: --Brand-Color-Copy-Link;
+$--Brand-Color-Border: --Brand-Color-Border;
+$--Brand-Color-Icon: --Brand-Color-Icon;
+$--Brand-Color-TransparentBackground: --Brand-Color-TransparentBackground;
+/* ============== */
+/* Base theme */
+/* Default theme */
+$theme-map-light: (
+  $--Brand-Color-Background: #EAEAEA,
+  $--Brand-Color-Copy-Body: #252A34,
+  $--Brand-Color-Copy-Title: #252A34,
+  $--Brand-Color-Copy-Link: #FF2E63,
+  $--Brand-Color-Border: #FF2E63,
+  $--Brand-Color-Icon: #08D9D6,
+  $--Brand-Color-TransparentBackground: transparent,
+);
+/* Core Theme  options https://www.colourlovers.com/palettes/search?query=neon */
+$theme-map-dark: (
+  $--Brand-Color-Background: #03001c,
+  $--Brand-Color-Copy-Body: #eafff7,
+  $--Brand-Color-Copy-Title: #b6eada,
+  $--Brand-Color-Copy-Link: #fb2576,
+  $--Brand-Color-Border: #faa307,
+  $--Brand-Color-Icon: #b6eada,
+  $--Brand-Color-TransparentBackground: transparent,
+);
+
+
+/* mixins to apply theme */
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}
+
+@function theme-var($key, $fallback: null, $map: $theme-map-light) {
+  @if not map-has-key($map, $key) {
+    @error "key: '#{$key}', is not a key in map: #{$map}";
+  }
+  @if ($fallback) {
+    @return var($key, $fallback);
+  } @else {
+    @return var($key);
+  }
+}

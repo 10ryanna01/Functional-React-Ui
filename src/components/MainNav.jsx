@@ -28,7 +28,8 @@ document.addEventListener("mousedown", handleExitMobileMenu);
           <nav className="UI__primary-nav">
             <ul className="UI__primary-nav__list">
               <li className="UI__primary-nav__list__item">Explore</li>
-              <li className="UI__primary-nav__list__item">About</li>
+              <li className="UI__primary-nav__list__item">Ask an AI</li>
+              <li className="UI__primary-nav__list__item">Top 100</li>
             </ul>
           </nav>
 

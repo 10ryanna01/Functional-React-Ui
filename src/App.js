@@ -20,7 +20,8 @@ function App() {
       <Global styles={GlobalStyles} />
       <div
         className={`UI ${
-          darkMode ? "UI__toggle-theme__dark" : "UI__toggle-theme__light"
+          darkMode ? "UI__toggle-theme__dark" : " UI__toggle-theme__light"
+      
         }`}
       >
         <div class="UI__container">
