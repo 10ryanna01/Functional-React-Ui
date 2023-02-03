@@ -1,11 +1,42 @@
-import { useState } from "react";
-import { IconLogin } from "../assets/Index";
+import { useState, useEffect, useRef } from "react";
+import {
+  IconAddUser,
+  IconLogin,
+  IconLogOut,
+  IconSettings,
+} from "../assets/Index";
+import AccountSignUpStepper from "./AccountSignUpStepper";
 
 export default function AccountNav() {
-  const [logUserIn, setLoguserIn] = useState(false);
+  const logUserInToggled = localStorage.getItem("user-logged-in") === "true";
+
+  const [logUserIn, setLoguserIn] = useState(logUserInToggled);
+  const [userSignUp, setUserSignUp] = useState(false);
+  const [userAccontSettings, setAccontSettings] = useState(false);
+
+ 
+let userSignUpRef = useRef();
+
+  useEffect(() => {
+    localStorage.setItem("user-logged-in", logUserIn);
+  }, [logUserIn]);
+
+
+  useEffect(() => {
+    let handleExitUserSignUp = (e) => {
+      if(!userSignUpRef.current.contains(e.target)) {
+        setUserSignUp(false);
+      }
+    }
+    document.addEventListener("mousedown", handleExitUserSignUp); 
+    }, [])
 
   const handleLogIn = () => {
     setLoguserIn(true);
+    setUserSignUp(false);
+  };
+  const handleSignUpStepper = () => {
+    setUserSignUp(true);
   };
   const handleLogOut = () => {
     setLoguserIn(false);
@@ -13,19 +44,41 @@ export default function AccountNav() {
 
   return (
     <>
-    <div class="UI__header__acc-nav">
-      {!logUserIn ? (
-        <div onClick={handleLogIn}>
-          <IconLogin />
-          <h3>signin</h3>
-        </div>
-      ) : (
-        <div >
-          <div onClick={handleLogOut}><h3>log out</h3></div>
+      <div className="UI__header__acc-nav">
+        {!logUserIn ? (
+          <ul className="UI__header__acc-nav__list">
+            <div
+              className="UI__header__acc-nav__list__item"
+              onClick={handleSignUpStepper}
+            >
+              <IconAddUser />
+              <h3>sign up</h3>
+            </div>
 
-        </div>
-      )}
+            <div onClick={handleLogIn}>
+              <IconLogin />
+              <h3>sign in</h3>
+            </div>
+          </ul>
+        ) : (
+          <>
+            <button>
+              <IconSettings />
+              settings
+            </button>
+            <button onClick={handleLogOut}>
+              <IconLogOut />
+              log out
+            </button>
+          </>
+        )}
       </div>
+
+      {userSignUp ? (
+        <div ref={userSignUpRef}>
+          <AccountSignUpStepper  />
+        </div>
+      ) : null}
     </>
   );
 }

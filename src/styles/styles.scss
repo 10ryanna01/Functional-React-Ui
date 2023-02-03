@@ -18,6 +18,7 @@ $Brand-Color-TransparentBackground: transparent !important;
   color: $bg;
   background: $copy;
 }
+
 /* ============ */
 
 /* 
@@ -26,6 +27,13 @@ $Brand-Color-TransparentBackground: transparent !important;
 ================= */
 
 .UI__utility {
+&__display-mobile{
+  display: none;
+  @media screen and (max-width: 750px) {
+    display: flex;
+  }
+}
+
   &__fontfamily {
     font-family: "Roboto", sans-serif;
   }
@@ -45,6 +53,7 @@ $Brand-Color-TransparentBackground: transparent !important;
     font-weight: 300;
     line-height: 1;
   }
+
   &__body-copy {
     color: $Brand-Color-Copy-Body;
     font-size: 1.2rem;
@@ -60,6 +69,7 @@ $Brand-Color-TransparentBackground: transparent !important;
   min-height: 900px;
 
   background: $Brand-Color-Background;
+
   &__container {
     width: 100%;
     max-width: 1150px;
@@ -71,6 +81,7 @@ $Brand-Color-TransparentBackground: transparent !important;
   }
 
   &__toggle-theme__light {
+
     .UI,
     .UI__container * {
       /* Core Theme */
@@ -84,6 +95,7 @@ $Brand-Color-TransparentBackground: transparent !important;
       background: $Brand-Color-TransparentBackground;
       background-color: $Brand-Color-TransparentBackground;
     }
+
     g {
       fill: $Brand-Color-Icon;
     }
@@ -99,15 +111,18 @@ $Brand-Color-TransparentBackground: transparent !important;
     /* Core Theme  options https://www.colourlovers.com/palettes/search?query=neon */
     background: $Brand-Color-Background;
     color: $Brand-Color-Copy-Body;
-     .UI__header__title__copy {
+
+    .UI__header__title__copy {
       color: $Brand-Color-Copy-Title;
     }
+
     svg {
       fill: $Brand-Color-TransparentBackground;
       stroke: $Brand-Color-Icon;
       background: $Brand-Color-TransparentBackground;
       background-color: $Brand-Color-TransparentBackground;
     }
+
     g {
       fill: $Brand-Color-Icon;
     }
@@ -117,18 +132,22 @@ $Brand-Color-TransparentBackground: transparent !important;
     width: 40px;
     transition: transform 0.3s ease-in-out;
     background: $Brand-Color-TransparentBackground;
+
     &:hover {
       transform: scale(1.1);
     }
   }
+
   &__icon__s {
     max-width: 40px;
     display: block;
   }
+
   &__icon__m {
     max-width: 60px;
     display: block;
   }
+
   /*  ===================== */
   /*   header  */
   /*  ===================== */
@@ -136,7 +155,7 @@ $Brand-Color-TransparentBackground: transparent !important;
   &__header {
     display: grid;
     grid-template-areas: "siteLogo siteTitle  siteNav accNav siteTheme";
-    grid-template-columns: 75px 200px 1fr 100px 40px;
+    grid-template-columns: 75px 200px  40% 165px 40px;
     width: 100%;
     max-width: 100%;
     align-items: center;
@@ -147,25 +166,27 @@ $Brand-Color-TransparentBackground: transparent !important;
       grid-area: siteLogo;
       width: 100px;
       @extend .UI__animation__spin;
-
-      border: 1px solid green;
     }
+
     &__title {
       grid-area: siteTitle;
       border: 1px solid green;
+
       &__copy {
         @extend .UI__utility__title-copy;
       }
     }
+
     &__nav {
       grid-area: siteNav;
 
       border: 1px solid green;
     }
-    &__acc-nav{
-        grid-area: accNav;
 
+    &__acc-nav {
+      grid-area: accNav;
     }
+
     &__theme {
       grid-area: siteTheme;
 
@@ -182,7 +203,9 @@ $Brand-Color-TransparentBackground: transparent !important;
   &__off-canvas {
     display: block;
   }
-
+&__primary-nav-mobile-icon{
+  @extend .UI__utility__display-mobile;
+}
   &__primary-nav {
     width: 100%;
     border: 1px solid red;
@@ -192,10 +215,34 @@ $Brand-Color-TransparentBackground: transparent !important;
       display: flex;
       flex-flow: row;
       gap: 1rem;
-      &__item {
-      }
+
+      &__item {}
     }
   }
+
+/*   signup */
+&__signup-form {
+  margin: 0 auto;
+  flex-flow: column;
+  display: flex;
+  border-radius: 8px;
+  min-height: 400px;
+  width: 400px;
+  background: $Brand-Color-Background;
+  transform: translate(50%, 0);
+}
+
+&__header__acc-nav__list{
+  display: flex;
+  flex-flow: row;
+padding: 0;
+gap: 10px;
+  &--item{
+    display: flex;
+
+  }
+}
+
   //   close UI
 }
 
@@ -217,10 +264,12 @@ animation
     animation: App-logo-spin infinite 20s linear;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+
     @keyframes App-logo-spin {
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
