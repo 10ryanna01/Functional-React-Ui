@@ -4,8 +4,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "./coretheme.scss";
 
-/* toggletheme */
+body, html { 
+  font-family: "Roboto", sans-serif;
+}
 
+/* toggletheme */
 :root .UI__toggle-theme__light {
   @include spread-map($theme-map-light);
 }
@@ -20,17 +23,40 @@
     utilities
 ================= */
 
+ 
+@mixin show-on-mobile {
+  @media (max-width: 860px) {
+    @content;
+    display: flex;
+      flex-flow: row;
+      gap:1rem;
+  }
+}
+@mixin hide-on-mobile {
+  @media (max-width: 860px) {
+    @content;
+    display: none;
+  }
+}
+
+@mixin hide-on-desktop {
+  @media (min-width: 861px) {
+    @content;
+    display: none;
+  }
+}
+
 .UI__utility {
   &__display-mobile {
     display: none;
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 860px) {
       display: flex;
     }
   }
 
+
   &__fontfamily {
     font-family: "Roboto", sans-serif;
-    font-style: normal;
   }
 
   &__title-copy {
@@ -40,6 +66,9 @@
     letter-spacing: -1px;
     line-height: 1;
     text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    flex-flow: column;
   }
 
   &__subtitle-copy {
@@ -53,16 +82,66 @@
     color: theme-var($--Brand-Color-Copy-Body);
     font-size: 1.2rem;
   }
+  &__copy-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: theme-var($--Brand-Color-Copy-Body);
+    font-size: 1.2rem;
+  }
+
+  &__icon__l {
+    width: 40px;
+    height: 32px; 
+    display: flex;
+    border: 0; 
+    background: theme-var($--Brand-Color-TransparentBackground);
+    background-color: theme-var($--Brand-Color-TransparentBackground);
+    color: theme-var($--Brand-Color-Icon);
+
+    &:hover {
+      // transform: scale(1.1);
+    }
+  }
+
+  &__icon__nav {
+    stroke: theme-var($--Brand-Color-Icon);
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  &__button-reset{
+  background: transparent;
+padding: 0;
+border: 0;
 }
+
+
+/*   utility -- spacers */
+
+&__m-l-auto{
+  margin-left: auto;
+}
+
+
+}
+
 
 /*   ================ */
 .UI {
+
+:focus-visible, :focus{
+  border: 2px dashed  theme-var($--Brand-Color-Copy-Body  );
+  border-radius: 3px;
+  outline: none;
+}
+  
   @extend .UI__utility__fontfamily;
   width: 100%;
-
   display: block;
   min-height: 900px;
-
   background: theme-var($--Brand-Color-Background);
 
   &__container {
@@ -82,26 +161,6 @@
     color: theme-var($--Brand-Color-Copy-Body);
   }
 
-  &__icon__l {
-    width: 40px;
-    transition: transform 0.3s ease-in-out;
-    background: theme-var($--Brand-Color-TransparentBackground);
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &__icon__s {
-    max-width: 40px;
-    display: block;
-  }
-
-  &__icon__m {
-    max-width: 60px;
-    display: block;
-  }
-
   /*  ===================== */
   /*   header  */
   /*  ===================== */
@@ -109,44 +168,63 @@
   &__header {
     display: grid;
     grid-template-areas: "siteLogo siteTitle  siteNav accNav siteTheme";
-    grid-template-columns: 75px 200px 40% 165px 40px;
+    grid-template-columns: 75px 190px  35% 215px 40px;
+    
+
+    @media screen and (max-width: 860px) {
+      grid-template-columns: 75px 160px 50px 100px 40px;
+    }
+
+    @media screen and (max-width: 859px) {
+      grid-template-columns: 1fr 50% 1fr;
+      grid-template-areas: "siteLogo siteTitle  siteNav";
+      
+    }
+
     width: 100%;
     max-width: 100%;
-    align-items: center;
-    border-bottom: 4px solid theme-var($--Brand-Color-Border);
+    align-items: end;
     gap: 1rem;
+    justify-content: space-between;
+    border-bottom: 4px solid theme-var($--Brand-Color-Border);
 
     &__logo {
       grid-area: siteLogo;
       width: 100px;
-      @extend .UI__animation__spin;
+      @extend .UI__animation__spin; 
     }
 
     &__title {
-      grid-area: siteTitle;
-      border: 1px solid green;
-
+      grid-area: siteTitle; 
       &__copy {
         @extend .UI__utility__title-copy;
+      }
+      &__link{
+        text-decoration: none; 
       }
     }
 
     &__nav {
       grid-area: siteNav;
-
-      border: 1px solid green;
+      @media  (max-width: 860px) {
+        position: absolute;
+        right: 20px; 
+        top: 30px;
+      }
+ 
     }
 
-    &__acc-nav {
+    &__acc-nav { 
       grid-area: accNav;
+      display: flex;
+      gap: 1rem;
+      @include hide-on-mobile();
     }
 
     &__theme {
       grid-area: siteTheme;
 
-      width: 40px;
-
-      border: 1px solid green;
+      @include hide-on-mobile();
     }
   }
 
@@ -159,18 +237,95 @@
   }
   &__primary-nav-mobile-icon {
     @extend .UI__utility__display-mobile;
+    @include hide-on-desktop(); 
+    height: auto;
+    width: 45px;
+    
   }
+  &__primary-nav-mobile {
+    background: theme-var($--Brand-Color-Background);
+    height: 100vh;
+    position: fixed;
+    width: 300px;
+    right: 0;
+    top: 0;
+    border: 4px solid theme-var($--Brand-Color-Border);
+    @include hide-on-desktop();
+    padding: 1rem;
+    .UI__utility__selector > div {
+      @include show-on-mobile();
+      
+      
+    }
+    &__header{
+      display: flex;
+      flex-flow: column;
+    }
+    &__header__account{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.1rem
+    }
+    &__footer{
+      margin-top: 2rem; 
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+     }
+
+    &__list {
+      text-align: center;
+      display: flex;
+      flex-flow: column;
+ 
+      align-items: center;
+      &__item {
+        display: contents;
+       
+      }
+  
+      &__item__link {
+        width: 100%;
+        display: flex;
+        @extend .UI__utility__copy-link;
+        border-bottom: 2px solid theme-var($--Brand-Color-Border);
+        flex-flow: column;
+        padding: 1rem;
+ 
+        &:hover {
+          background: theme-var($--Brand-Color-Background);
+          color: theme-var($--Brand-Color-Icon);
+        } 
+      
+      }
+ 
+             
+
+      
+      
+ 
+    }
+  
+    /* close mobile nav */
+  }
+
   &__primary-nav {
     width: 100%;
-    border: 1px solid red;
 
+    @media screen and (max-width: 860px) {
+      display: none;
+    }
     &__list {
       list-style: none;
       display: flex;
       flex-flow: row;
       gap: 1rem;
-
+      justify-content: center;
       &__item {
+      }
+
+      &__item__link {
+        @extend .UI__utility__copy-link;
       }
     }
   }
@@ -179,27 +334,25 @@
         forms
     ===================== */
 
-    &__form__content{
+  &__form__content {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    &__input-row {
+      text-align: center;
       display: flex;
       flex-flow: column;
-      gap:1rem;
-
-      &__input-row{
-        text-align: center;
-        display: flex;
-        flex-flow: column;
-        max-width: 300px;
-        width: 100%;
-        align-self: center;
-      }
+      max-width: 300px;
+      width: 100%;
+      align-self: center;
     }
-
+  }
 
   /* ===================== 
         signup
     ===================== */
   &__signup-form {
-
     display: block;
     position: fixed;
     border-radius: 8px;
@@ -213,23 +366,21 @@
     background: theme-var($--Brand-Color-Background);
     border: 4px solid theme-var($--Brand-Color-Border);
 
-    &__header{
+    &__header {
       padding: 1rem;
       display: flex;
-      flex-flow: column;  
+      flex-flow: column;
       gap: 1rem;
-      &__title{
+      &__title {
         text-align: center;
       }
     }
 
-    &__body{
+    &__body {
       padding: 1rem;
       display: flex;
-      flex-flow: column;  
+      flex-flow: column;
       gap: 1rem;
-
-   
     }
   }
 
@@ -238,16 +389,19 @@
     flex-flow: row;
     padding: 0;
     gap: 10px;
-    align-items: center;
+    align-items: end;
+    justify-content: right;
+
     &__item {
       display: flex;
       flex-flow: column;
       justify-items: center;
     }
+    &__item__copy {
+      @extend .UI__utility__copy-link;
+    }
     &__item__icon {
-      stroke: theme-var($--Brand-Color-Icon);
-      width: 40px;
-      margin: 0 auto;
+      @extend .UI__utility__icon__nav;
     }
   }
 
@@ -281,11 +435,6 @@ animation
       to {
         transform: rotate(360deg);
       }
-    }
-
-    @media screen and (max-width: 600px) {
-      /* STYLES HERE */
-      animation: pulse infinite 5s linear;
     }
   }
 }

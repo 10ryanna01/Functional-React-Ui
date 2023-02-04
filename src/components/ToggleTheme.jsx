@@ -27,13 +27,13 @@ export default function ToggleTheme() {
     <>
       <div className="UI__header__theme ">
         {darkMode ? (
-          <div onClick={handletoggleThemeLight} className="UI__icon__l">
+          <button onClick={handletoggleThemeLight} className="UI__utility__icon__l">
             <Sun />
-          </div>
+          </button>
         ) : (
-          <div onClick={handletoggleThemeDark} className="UI__icon__l">
+          <button onClick={handletoggleThemeDark} className="UI__utility__icon__l">
             <IconDarkMode />
-          </div>
+          </button>
         )}
       </div>
     </>

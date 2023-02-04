@@ -14,22 +14,20 @@ export default function AccountNav() {
   const [userSignUp, setUserSignUp] = useState(false);
   const [userAccontSettings, setAccontSettings] = useState(false);
 
- 
-let userSignUpRef = useRef();
+  let userSignUpRef = useRef();
 
   useEffect(() => {
     localStorage.setItem("user-logged-in", logUserIn);
   }, [logUserIn]);
 
-
   useEffect(() => {
     let handleExitUserSignUp = (e) => {
-      if(!userSignUpRef.current.contains(e.target)) {
+      if (!userSignUpRef.current.contains(e.target)) {
         setUserSignUp(false);
       }
-    }
-    document.addEventListener("mousedown", handleExitUserSignUp); 
-    }, [])
+    };
+    document.addEventListener("mousedown", handleExitUserSignUp);
+  }, []);
 
   const handleLogIn = () => {
     setLoguserIn(true);
@@ -46,37 +44,48 @@ let userSignUpRef = useRef();
     <>
       <div className="UI__header__acc-nav">
         {!logUserIn ? (
-          <ul className="UI__header__acc-nav__list">
-            <div
-              className="UI__header__acc-nav__list__item"
+          <div className="UI__header__acc-nav__list">
+            <button
+              className=" UI__utility__button-reset UI__header__acc-nav__list__item"
               onClick={handleSignUpStepper}
             >
               <IconAddUser className="UI__header__acc-nav__list__item__icon" />
-              <h3 className="">sign up</h3>
-            </div>
+              <h3 className="UI__header__acc-nav__list__item__copy">sign up</h3>
+            </button>
 
-            <div onClick={handleLogIn}>
+         
+            <button className="UI__utility__button-reset" onClick={handleLogIn}>
               <IconLogin className="UI__header__acc-nav__list__item__icon" />
-              <h3 className="">sign in</h3>
-            </div>
-          </ul>
+              <h3 className="UI__header__acc-nav__list__item__copy">sign in</h3>
+              </button>
+              
+
+          </div>
         ) : (
           <>
-            <button>
-              <IconSettings />
-              settings
+            <button className="UI__utility__button-reset">
+ 
+
+              <IconSettings className="UI__header__acc-nav__list__item__icon" />
+              <h3 className="UI__header__acc-nav__list__item__copy">
+                {" "}
+                settings{" "}
+              </h3>
             </button>
-            <button onClick={handleLogOut}>
-              <IconLogOut />
-              log out
-            </button>
+            <button className="UI__utility__button-reset" onClick={handleLogOut}>
+              <IconLogOut className="UI__header__acc-nav__list__item__icon" />
+              <h3 className="UI__header__acc-nav__list__item__copy">
+                {" "}
+                log out{" "}
+              </h3>
+              </button>
           </>
         )}
       </div>
 
       {userSignUp ? (
-        <div ref={userSignUpRef}>
-          <AccountSignUpStepper  />
+        <div ref={userSignUpRef} className="UI__signup-form">
+          <AccountSignUpStepper />
         </div>
       ) : null}
     </>

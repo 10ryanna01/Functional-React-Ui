@@ -14,7 +14,7 @@ export default function AccountSignUpStepper() {
   };
 
   return (
-    <div className="UI__signup-form">
+    <>
     <div className="UI__signup-form__header">
     <h2 className="UI__signup-form__header__title">Lets set up your account</h2>
 
@@ -65,6 +65,6 @@ export default function AccountSignUpStepper() {
         </div>
       </form>
     </div>
-    </div>
+    </>
   );
 }

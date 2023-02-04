@@ -11,7 +11,7 @@ export default function Header() {
         <Logo className="UI__header__logo" alt="logo" />
 
         <div className="UI__header__title">
-          <h1 className="UI__header__title__copy">Demo UI</h1>
+          <a href="/" className="UI__header__title__link"><h1 className="UI__header__title__copy">Demo UI</h1></a>
         </div>
 
         <MainNav />
