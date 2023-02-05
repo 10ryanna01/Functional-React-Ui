@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+
 import { DarkModeContext } from "./context/DarkModeContext";
 import { Global } from "@emotion/react";
 import { GlobalStyles } from "./styles/globalstyles";
@@ -8,11 +9,10 @@ import CardsData from "./components/CardsData";
 function App() {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
-  useEffect(() => {
+  useEffect(() => { 
     document.body.classList.add("UI__js--body-hook");
     document.documentElement.classList.add("UI__js--document-hook");
-
-    console.log("activated darkmode", darkMode);
+    console.log(" is dark mode active?", darkMode);
   }, []);
 
   return (

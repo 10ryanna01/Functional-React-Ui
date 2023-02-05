@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { IconGrid, IconList } from "../assets/Index";
 import CardsTemplate from "./CardsTemplate";
@@ -44,14 +43,15 @@ export default function CardsData() {
       <LiveSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <>
         
+        <div className="UI__sort-view">
         {addSortByGrid ?  
         <IconList className="UI__utility__icon__l" onClick={handleToggleGrid} />
           : 
           <IconGrid className="UI__utility__icon__l" onClick={handleToggleGrid} />
         
         }
-        <h2>search results for "{searchValue}" </h2>
-
+        <h2 className="UI__utility__results-title">search results for "{searchValue}" </h2>
+        </div>
         <CardsTemplate movies={movies} addSortByGrid={addSortByGrid}  />
       </>
     </>
