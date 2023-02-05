@@ -8,12 +8,15 @@ import CardsData from "./components/CardsData";
 function App() {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
+
   useEffect(() => {
     document.body.classList.add("UI__js--body-hook");
     document.documentElement.classList.add("UI__js--document-hook");
 
     console.log("activated darkmode", darkMode);
   }, []);
+
+
 
   return (
     <>
@@ -24,7 +27,7 @@ function App() {
       
         }`}
       >
-        <div class="UI__container">
+        <div className="UI__container">
           <Header />
 
           <main>

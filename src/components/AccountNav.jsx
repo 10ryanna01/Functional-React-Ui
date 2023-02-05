@@ -27,6 +27,9 @@ export default function AccountNav() {
       }
     };
     document.addEventListener("mousedown", handleExitUserSignUp);
+    return () => {
+      document.removeEventListener('mousedown', handleExitUserSignUp); 
+    };
   }, []);
 
   const handleLogIn = () => {
@@ -42,7 +45,7 @@ export default function AccountNav() {
 
   return (
     <>
-      <div className="UI__header__acc-nav">
+      <div className="UI__header__acc-nav"  ref={userSignUpRef}>
         {!logUserIn ? (
           <div className="UI__header__acc-nav__list">
             <button
@@ -84,7 +87,7 @@ export default function AccountNav() {
       </div>
 
       {userSignUp ? (
-        <div ref={userSignUpRef} className="UI__signup-form">
+        <div  className="UI__signup-form">
           <AccountSignUpStepper />
         </div>
       ) : null}
