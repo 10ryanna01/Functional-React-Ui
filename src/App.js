@@ -8,7 +8,6 @@ import CardsData from "./components/CardsData";
 function App() {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
-
   useEffect(() => {
     document.body.classList.add("UI__js--body-hook");
     document.documentElement.classList.add("UI__js--document-hook");
@@ -16,15 +15,12 @@ function App() {
     console.log("activated darkmode", darkMode);
   }, []);
 
-
-
   return (
     <>
       <Global styles={GlobalStyles} />
       <div
         className={`UI ${
           darkMode ? "UI__toggle-theme__dark" : " UI__toggle-theme__light"
-      
         }`}
       >
         <div className="UI__container">

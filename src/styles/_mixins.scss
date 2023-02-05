@@ -1,0 +1,39 @@
+//////////////////////////////
+// start mixins.scss
+//////////////////////////////
+@mixin screen-reader-only {
+   
+    @content;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+   
+}
+@mixin show-on-mobile {
+  @media (max-width: 860px) {
+    @content;
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+  }
+}
+@mixin hide-on-mobile {
+  @media (max-width: 860px) {
+    @content;
+    display: none;
+  }
+}
+
+@mixin hide-on-desktop {
+  @media (min-width: 861px) {
+    @content;
+    display: none;
+  }
+}

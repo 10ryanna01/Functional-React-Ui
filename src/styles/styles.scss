@@ -2,6 +2,7 @@
 
 @import "./reset";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "./mixins";
 @import "./coretheme.scss";
 
 body,
@@ -24,29 +25,11 @@ html {
     utilities
 ================= */
 
-@mixin show-on-mobile {
-  @media (max-width: 860px) {
-    @content;
-    display: flex;
-    flex-flow: row;
-    gap: 1rem;
-  }
-}
-@mixin hide-on-mobile {
-  @media (max-width: 860px) {
-    @content;
-    display: none;
-  }
-}
-
-@mixin hide-on-desktop {
-  @media (min-width: 861px) {
-    @content;
-    display: none;
-  }
-}
-
 .UI__utility {
+  &__screen-reader {
+    @include screen-reader-only;
+  }
+
   &__display-mobile {
     display: none;
     @media screen and (max-width: 860px) {
@@ -93,7 +76,7 @@ html {
 
   &__icon__l {
     width: 40px;
-
+    cursor: pointer;
     display: flex;
     padding: 0;
     border: 0;
@@ -228,8 +211,99 @@ html {
 
     &__theme {
       grid-area: siteTheme;
-
       @include hide-on-mobile();
+    }
+  }
+  &__card-container-grid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(1, 300px) !important;
+    overflow-x: auto;
+
+    @media screen and (max-width: 860px) {
+      grid-template-columns: repeat(2, 300px) ;
+      grid-auto-flow: row;
+    }
+    @media screen and (max-width: 480px) {
+      grid-template-columns: repeat(1, auto);
+      grid-auto-flow: row;
+    }
+  }
+
+  &__card-container {
+    display: grid;
+    gap: 1rem;
+    grid-column: 1;
+    grid-row: 1;
+justify-content: auto ;
+    grid-template-columns: repeat(3, 300px);
+
+    @media screen and (max-width: 640px) {
+      grid-template-columns: repeat(2, auto) !important;
+      grid-auto-flow: row;
+    }
+    @media screen and (max-width: 480px) {
+      grid-template-columns: repeat(1, auto) !important;
+      grid-auto-flow: row;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-flow: column;
+
+    width: 300px;
+    /*  sharper images optional */
+    /*  width: 300px;  */
+
+    &__body {
+      position: relative;
+      display: flex;
+      top: 0;
+      left: 0;
+      flex-flow: column;
+    }
+
+    &__body__image {
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      &__asset {
+        min-height: 465px !important ;
+      }
+      // &:hover{
+      //   cursor: pointer;
+      // }
+      &:hover + .UI__card__body__copy {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        margin: auto;
+        flex-flow: column;
+        justify-content: center;
+        color: theme-var($--Brand-Color-Copy-Body);
+        background: theme-var($--Brand-Color-Overlay);
+      }
+    }
+
+    &__body__image + .UI__card__body__copy {
+      display: none;
+      color: theme-var($--Brand-Color-Copy-Body);
+    }
+    &__body__copy {
+      pointer-events: none;
+      color: theme-var($--Brand-Color-Copy-Body);
+    }
+    &__body__copy__title {
+    }
+    &__body__copy__year {
+    }
+    &__body__copy__link {
     }
   }
 
@@ -237,9 +311,6 @@ html {
   /*   navigation */
   /*  ===================== */
 
-  &__off-canvas {
-    display: block;
-  }
   &__primary-nav-mobile-icon {
     @extend .UI__utility__display-mobile;
     @include hide-on-desktop();
@@ -337,9 +408,26 @@ html {
       text-align: center;
       display: flex;
       flex-flow: column;
-      max-width: 300px;
+      max-width: 420px;
       width: 100%;
       align-self: center;
+    }
+
+    &__input-text {
+      border-radius: 5px;
+      border: 2px solid theme-var($--Brand-Color-Border);
+      padding: 0.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-flow: column;
+      align-self: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    &__input-search {
+      @extend .UI__form__content__input-text;
+      margin-top: 2rem;
     }
   }
 

@@ -6,10 +6,12 @@ $--Brand-Color-Border: --Brand-Color-Border;
 $--Brand-Color-Icon: --Brand-Color-Icon;
 $--Brand-Color-Error: --Brand-Color-Error;
 $--Brand-Color-TransparentBackground: --Brand-Color-TransparentBackground;
+$--Brand-Color-Overlay: --Brand-Color-Overlay;
+
  
-/* ============== */
-/* Base theme */
-/* Default theme */
+// ============================
+//  Base theme  / Default theme 
+//  ===========================
 $theme-map-light: (
   $--Brand-Color-Background: #EAEAEA,
   $--Brand-Color-Copy-Body: #252A34,
@@ -19,6 +21,8 @@ $theme-map-light: (
   $--Brand-Color-Icon: #08D9D6,
   $--Brand-Color-Error: #faa307,
   $--Brand-Color-TransparentBackground: transparent,
+  $--Brand-Color-Overlay: rgba(234, 234, 234, 0.8),
+
 );
 /* Core Theme  options https://www.colourlovers.com/palettes/search?query=neon */
 $theme-map-dark: (
@@ -30,6 +34,7 @@ $theme-map-dark: (
   $--Brand-Color-Icon: #b6eada,
   $--Brand-Color-Error: #faa307,
   $--Brand-Color-TransparentBackground: transparent,
+  $--Brand-Color-Overlay: rgba(3, 0, 28, 0.3),
 );
 
 
