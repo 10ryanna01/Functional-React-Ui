@@ -1,10 +1,8 @@
  
 import CardsData from "../components/CardsData";
-export default function home() {
+export default function Home() {
   return (
-    <> 
- 
-      hello world homepage
+    <>  
      
       <CardsData /> 
      

@@ -45,7 +45,7 @@ export default function AccountNav() {
 
   return (
     <>
-      <div className="UI__header__acc-nav"  ref={userSignUpRef}>
+      <div className="UI__header__acc-nav"  >
         {!logUserIn ? (
           <div className="UI__header__acc-nav__list">
             <button
@@ -85,12 +85,13 @@ export default function AccountNav() {
           </>
         )}
       </div>
-
+<div ref={userSignUpRef}>
       {userSignUp ? (
         <div  className="UI__signup-form">
           <AccountSignUpStepper />
         </div>
       ) : null}
+      </div>
     </>
   );
 }

@@ -3,7 +3,7 @@ import { IconGrid, IconList } from "../assets/Index";
 import CardsTemplate from "./CardsTemplate";
 import LiveSearch from "./LiveSearch";
 
-export default function CardsData() {
+export default function CardsData(props) {
   
   const [movies, setMovies] = useState([]);
   const [addSortByGrid, setAddSortByGrid] = useState(false);
