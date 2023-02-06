@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 import { IconBurger, IconClose } from "../assets/Index";
 import AccountNav from "./AccountNav";
 import ToggleTheme from "./ToggleTheme";
@@ -43,14 +44,12 @@ export default function MainNav() {
                 Explore
               </a>
             </li>
+            
             <li className="UI__primary-nav__list__item">
-              <a
-                className="UI__primary-nav__list__item__link"
-                href="/"
-                title=""
-              >
+              
+              <NavLink to="/about"  className="UI__primary-nav__list__item__link">
                 ask the AI
-              </a>
+              </NavLink>
             </li>
             <li className="UI__primary-nav__list__item">
               <a
@@ -123,7 +122,7 @@ export default function MainNav() {
           </>
         ) : null}
         </div>
-      </div>
+      </div> 
     </>
   );
 }

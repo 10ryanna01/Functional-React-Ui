@@ -1,36 +1,29 @@
-import { useContext, useState, useEffect } from "react";
+ 
+import "./styles/styles.scss";
+import Header from "./components/Header";  
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/home";
+import About from "./pages/about";
 
-import { DarkModeContext } from "./context/DarkModeContext";
-import { Global } from "@emotion/react";
-import { GlobalStyles } from "./styles/globalstyles";
-import Header from "./components/Header";
-import CardsData from "./components/CardsData";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Header />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+    </Route>
+  )
+);
 
 function App() {
-  const [darkMode, setDarkMode] = useContext(DarkModeContext);
-
-  useEffect(() => { 
-    document.body.classList.add("UI__js--body-hook");
-    document.documentElement.classList.add("UI__js--document-hook");
-    console.log(" is dark mode active?", darkMode);
-  }, []);
-
   return (
     <>
-      <Global styles={GlobalStyles} />
-      <div
-        className={`UI ${
-          darkMode ? "UI__toggle-theme__dark" : " UI__toggle-theme__light"
-        }`}
-      >
-        <div className="UI__container">
-          <Header />
-
-          <main>
-            <CardsData />
-          </main>
-        </div>
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
