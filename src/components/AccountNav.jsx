@@ -11,7 +11,7 @@ export default function AccountNav() {
   const logUserInToggled = localStorage.getItem("user-logged-in") === "true";
 
   const [logUserIn, setLoguserIn] = useState(logUserInToggled);
-  const [userSignUp, setUserSignUp] = useState(false);
+  const [userSignUp, setUserSignUp] = useState(true);
   const [userAccontSettings, setAccontSettings] = useState(false);
 
   let userSignUpRef = useRef();
