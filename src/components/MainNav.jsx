@@ -17,6 +17,28 @@ export default function MainNav() {
     setMobileNavMenu(false);
   };
 
+  const mappedNavListItems = [
+    {
+      navName: "new",
+      navItemLink: "/new",
+      navItemTitleText: "click here to go to new"
+
+    },
+    {
+      navName: "Explore",
+      navItemLink: "/explore",
+      navItemTitleText: "click here to go to Explore"
+
+    },
+    {
+      navName: "ask the AI",
+      navItemLink: "/faq",
+      navItemTitleText: "click here to go to FAQ"
+
+    },
+ 
+  ]
+
   useEffect(() => {
     let handleToggleMobileNav = (e) => {
       if (!toggleMobileNav.current.contains(e.target)) {
@@ -35,34 +57,22 @@ export default function MainNav() {
       <div className="UI__header__nav">
         <nav className="UI__primary-nav">
           <ul className="UI__primary-nav__list">
-            <li className="UI__primary-nav__list__item">
-              <a
-                className="UI__primary-nav__list__item__link"
-                href="/"
-                title=""
-              >
-                Explore
-              </a>
-            </li>
-            
-            <li className="UI__primary-nav__list__item">
               
-              <NavLink to="/about"  className="UI__primary-nav__list__item__link">
-                ask the AI
-              </NavLink>
-            </li>
-            <li className="UI__primary-nav__list__item">
-              <a
-                className="UI__primary-nav__list__item__link"
-                href="/"
-                title="go to"
-              >
-                Top 100
-              </a>
-            </li>
-          </ul>
-        </nav>
+              {mappedNavListItems.map((navItem, index) => {
+                        return (  <li key={index} className="UI__primary-nav__list__item">
+                          <a
+                            className="UI__primary-nav__list__item__link"
+                            href={navItem.navItemLink}
+                            title={navItem.navItemTitleText}
+                          >
+                          {navItem.navName}
+                          </a>
+                        </li>
+                      );
+                      })}
 
+              </ul>
+              </nav>
         {/*  start mobile nav */}
         <button className="UI__primary-nav-mobile-icon">
           <IconBurger

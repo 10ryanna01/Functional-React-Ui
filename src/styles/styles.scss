@@ -9,7 +9,6 @@ body,
 html {
   font-family: "Roboto", sans-serif;
 }
- 
 
 /* toggletheme */
 :root .UI__toggle-theme__light {
@@ -25,7 +24,10 @@ html {
 =================
     utilities
 ================= */
+
 .UI__utility {
+
+ 
   &__screen-reader {
     @include screen-reader-only;
   }
@@ -58,19 +60,15 @@ html {
     font-size: 1.8rem;
     font-weight: 300;
     line-height: 1;
-
   }
 
-  &__results-title{
-   
-@extend .UI__utility__subtitle-copy; 
+  &__results-title {
+    @extend .UI__utility__subtitle-copy;
     text-transform: capitalize;
     font-size: 1.2rem;
     @media screen and (max-width: 960px) {
       font-size: 1.3rem;
     }
-
-     
   }
 
   &__body-copy {
@@ -131,6 +129,8 @@ html {
 
 /*   ================ */
 .UI {
+  
+
   button,
   a {
     /* fix for tabbing elements on page */
@@ -240,7 +240,7 @@ html {
     justify-content: space-between !important;
     width: 100% !important;
     overflow-x: scroll;
-    
+
     @media screen and (max-width: 1024px) {
       grid-template-columns: repeat(3, 300px);
       grid-auto-flow: row;
@@ -305,7 +305,7 @@ html {
       &__asset {
         min-height: 465px !important ;
       }
-      &:hover { 
+      &:hover {
       }
 
       &:hover .UI__card__body__copy {
@@ -316,7 +316,7 @@ html {
         width: 100%;
         height: 100%;
         display: flex;
-        visibility: visible; 
+        visibility: visible;
         text-align: center;
         flex-flow: column;
         justify-content: center;
@@ -328,7 +328,7 @@ html {
     &__body__copy {
       position: absolute;
       top: 0;
-      left: 0; 
+      left: 0;
       pointer-events: none;
       visibility: hidden;
 
@@ -351,7 +351,6 @@ html {
         border-bottom: 4px dashed theme-var($--Brand-Color-Border);
         position: relative;
         padding-bottom: 1rem;
-       
       }
     }
   }
@@ -416,7 +415,7 @@ html {
 
         &:hover {
           background: theme-var($--Brand-Color-Background);
-          color: theme-var($--Brand-Color-Icon);
+          color: theme-var($--Brand-Color-Border);
         }
       }
     }
@@ -446,20 +445,119 @@ html {
   }
 
   /* ===================== 
+        Pages  
+    ===================== */
+  .UI__static__page {
+    &__title {
+      text-align: center;
+      @extend .UI__utility__title-copy;
+      margin-top: 2rem;
+    }
+
+    .UI__live-search,
+    .UI__utility__results-title {
+      display: none;
+    }
+  }
+
+  // ====================================
+  //     forms  -- checkboxes and radios
+  // =====================================
+  &__button-submit{
+    background: theme-var($--Brand-Color-Overlay);
+    color: theme-var($--Brand-Color-Border);
+    padding:1rem;
+    transition: all ease 0.4s;
+    transform:scale(1.0);
+    &:focus,
+    &:hover{
+      color: theme-var($--Brand-Color-Copy-Body);
+      background: theme-var($--Brand-Color-Icon);
+      
+      transform:scale(1.1);
+    }
+  }
+  &__checkbox__input-wrapper{
+    border: 2px dashed  theme-var($--Brand-Color-TransparentBackground) ;
+    &:focus, &:focus-within{
+      border: 2px dashed theme-var($--Brand-Color-Copy-Body) ;
+    } 
+  }
+  &__checkbox__input-wrapper input[type="checkbox"] {
+
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: theme-var($--Brand-Color-Copy-Body);
+    border: 1px solid theme-var($--Brand-Color-Border);
+    border-radius: 4px;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+   
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 2px;
+      left: 7px;
+      width: 8px;
+      height: 14px;
+      border-style: solid;
+      border-color: theme-var($--Brand-Color-Border);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+    &:checked {
+      color: theme-var($--Brand-Color-Copy-Link);
+      border-color: theme-var($--Brand-Color-Border);
+      background: theme-var($--Brand-Color-Border);
+      &::before {
+        opacity: 1;
+      }
+      ~ .UI__checkbox__input-label::before {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+
+  &__checkbox__input-label {
+    position: relative;
+    cursor: pointer;
+    @extend .UI__utility__subtitle-copy;
+
+    padding-left: 1rem;
+    user-select: none;
+    &::before {
+      position: absolute;
+      content: attr(data-content);
+      color: theme-var($--Brand-Color-Copy-Body);
+      clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+      text-decoration-color: theme-var($--Brand-Color-Copy-Body);
+      transition: clip-path 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+
+  /* ===================== 
         forms
     ===================== */
-    
+
   &__form__content {
     display: flex;
     flex-flow: column;
     gap: 1rem;
 
-     &__validation-error{
+    &__validation-error {
       @extend .UI__utility__body-error-text;
       padding-bottom: 0.3rem;
-     }
+    }
 
-     &__validation-success{}
+    &__validation-success {
+    }
     &__input-row {
       text-align: center;
       display: flex;
@@ -468,20 +566,34 @@ html {
       width: 100%;
       align-self: center;
     }
+    &__checkbox-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-    &__input-text {
-      border-radius: 5px;
-      border: 2px solid theme-var($--Brand-Color-Border);
-      padding: 0.5rem 1rem;
-      text-align: center;
-      display: flex;
-      flex-flow: column;
-      align-self: center;
-      max-width: 400px;
-      width: 100%;
+      @media (max-width: 480px) {
+        width: 400px;
+        transform: scale(0.7) translate(-20%, 0);
+        
+      }
     }
 
-    &__input-search {
+    &__input-text {
+      @extend .UI__primary-nav__list__item__link;
+      border-left: 2px dashed theme-var($--Brand-Color-TransparentBackground);
+      border-right: 2px dashed theme-var($--Brand-Color-TransparentBackground);
+      border-top: 2px dashed theme-var($--Brand-Color-TransparentBackground);
+      border-bottom: 2px dashed theme-var($--Brand-Color-Border);
+      color: theme-var($--Brand-Color-Copy-Body);
+
+      padding: 1rem;
+      background: theme-var($--Brand-Color-TransparentBackground);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__input-search,
+    &__input-search:focus {
       @extend .UI__form__content__input-text;
       margin-top: 2rem;
     }
@@ -494,10 +606,11 @@ html {
     display: block;
     position: fixed;
     border-radius: 8px;
-    min-height: 400px;
-    width: 400px;
+    height: 680px;
+    width: 460px;
     transform: translate(-50%, -50%);
-    top: 40%;
+    padding: 1rem;
+    top: 50%;
     left: 50%;
     margin: 0;
     z-index: 11;
@@ -505,6 +618,15 @@ html {
     border: 4px solid theme-var($--Brand-Color-Border);
     // transform: scale(1.5);
     // left: 45%;
+    @media (max-width: 480px) {
+      max-width: 100%;
+      width: 100%;
+      transform: translate(0, 100px);
+      top: 0;
+      left: 0;
+      height: 680px;
+    }
+
     &__header {
       padding: 1rem;
       display: flex;
@@ -520,6 +642,9 @@ html {
       display: flex;
       flex-flow: column;
       gap: 1rem;
+      @media (max-width: 860px) {
+        // transform: scale(0.6) translate(0%, -100px);
+      }
     }
   }
 
@@ -545,7 +670,7 @@ html {
     }
   }
 
-  &__sort-view{
+  &__sort-view {
     display: flex;
     flex-flow: row-reverse;
     align-items: center;
@@ -556,13 +681,32 @@ html {
   //   close UI
 }
 
- 
 /* 
 =====================
 animation 
 ====================== 
 */
 
+
+
+
+
+ 
+
+.overlay{
+  
+      
+ 
+        position: fixed;
+        z-index: 4;
+        background: theme-var($--Brand-Color-Background);
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        top: 0;
+        left: 0;
+}
 .UI__animation {
   &__spin {
     animation: App-logo-spin infinite 20s linear;
@@ -578,5 +722,68 @@ animation
         transform: rotate(360deg);
       }
     }
+  }
+}
+
+.board {
+  font-family: "Dosis";
+  font-size: 2.2rem;
+  // adjust the font size to scale the whole board
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  text-shadow: 1px 1px #666, 3px 3px #000;
+
+  width: 250px;
+  height: 350px;
+  padding: 20px;
+  overflow: hidden;
+  color: #fff;
+  border: 10px solid #eee;
+
+  background: linear-gradient(#0e0e0e 65%, #030303 66%) top 0.03em center / 100%
+    0.3em repeat-y;
+  box-shadow: 0px -1px 0px 2px #aaa, 0 -7px 5px -5px #000,
+    0 -15px 30px -15px #000, 0 3px 4px -2px #000, -60px 30px 70px -70px #000,
+    70px 30px 70px -70px #000, 0px 200px 20px rgba(#fff, 0.05),
+    inset 0 0 25px #000, inset 0 0 5px #000;
+
+  &:focus {
+    outline: none;
+  }
+
+  // The table
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: calc(50% + 100px);
+    z-index: -1;
+    box-shadow: 0 -2px 3px rgba(#000, 0.1), inset 0 2px 2px rgba(#000, 0.15),
+      inset 0 10px 300px rgba(#000, 0.5);
+    // Behold the wood texture
+    background: #d1a776
+      url(data:image/png;base64,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)
+      center / 5000px 100px;
+  }
+
+  // The plant
+  &:before {
+    content: "";
+    position: absolute;
+    background: url("https://img.teleflora.com/images/o_0/l_flowers:TPL08-1A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/TPL08-1A/Teleflora&#039;sLushLeavesPothosPlant")
+      center / contain no-repeat;
+    width: 250px;
+    height: 300px;
+    left: calc(50% - 370px);
+    top: calc(50vh - 30px);
+    filter: drop-shadow(20px 10px 20px rgba(0, 0, 0, 0.3));
+  }
+
+  u {
+    color: #fd0;
+    text-underline-position: under;
   }
 }

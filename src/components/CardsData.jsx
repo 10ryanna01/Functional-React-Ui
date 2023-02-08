@@ -7,7 +7,7 @@ export default function CardsData(props) {
   
   const [movies, setMovies] = useState([]);
   const [addSortByGrid, setAddSortByGrid] = useState(false);
-  const [searchValue, setSearchValue] = useState("big");
+  const [searchValue, setSearchValue] = useState(`${props.searchValue}`);
   /*  fetch movie data */
 
   // sandbox api key

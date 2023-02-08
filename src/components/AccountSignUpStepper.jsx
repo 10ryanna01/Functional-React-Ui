@@ -14,6 +14,10 @@ export default function AccountSignUpStepper() {
   const [signUpStepperPartTwo, setSignUpStepperPartThree] = useState(false);
 
   const labelText = "enter first name";
+  const inputPlaceholderEmail = "add an emaill address";
+  const inputPlaceholderConfirmEmail = "confirm email address";
+  const inputPlaceholderUserName = "add a user name";
+  const inputPlaceholderEnterGenre = "select a genre";
 
   const [genreIsChecked, setgenreIsChecked] = useState([]);
 
@@ -25,9 +29,9 @@ export default function AccountSignUpStepper() {
       check: false,
     },
     {
-      name: "FilmNoire",
+      name: "Film Noire",
       id: "checkBox2",
-      label: "FilmNoire",
+      label: "Film Noire",
       check: false,
     },
     {
@@ -35,11 +39,36 @@ export default function AccountSignUpStepper() {
       id: "checkBox3",
       label: "Sci-Fi",
       check: false,
+      
     },
     {
       name: "Horror",
       id: "checkBox4",
       label: "Horror",
+      check: false,
+    },
+    {
+      name: "Action",
+      id: "checkBox5",
+      label: "Action",
+      check: false,
+    },
+    {
+      name: "Fantasy",
+      id: "checkBox6",
+      label: "Fantasy",
+      check: false,
+    },
+    {
+      name: "Thriller",
+      id: "checkBox7",
+      label: "Thriller",
+      check: false,
+    },
+    {
+      name: "Drama",
+      id: "checkBox8",
+      label: "Drama",
       check: false,
     },
 
@@ -77,8 +106,9 @@ export default function AccountSignUpStepper() {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
-    alert(JSON.stringify(data));
+    console.log(data, `axios.post("/api/addNewFilmFan", data)` )
+    // alert(JSON.stringify(data));
+  // return axios.post("/api/register", data);
   };
 
 
@@ -114,62 +144,80 @@ export default function AccountSignUpStepper() {
         </div>
         <form className="UI__form__content" onSubmit={handleSubmit(onSubmit)}>
           <div className="UI__form__content__input-row">
-            <label htmlFor="signup__userName">User Name</label>
+            <label htmlFor="signup__userName"  className="UI__utility__screen-reader" >User Name</label>
 
             <input
               type="text"
               aria-label={labelText}
               aria-required="true"
-              placeholder={labelText}
+              className="UI__form__content__input-text"
+              placeholder={inputPlaceholderUserName}
               name="signup__userName"
               {...register("userName")}
+              autoFocus
             />
           </div>
 
           <div className="UI__form__content__input-row">
-            <label htmlFor="signup__userEmail">Email</label>
+            <label htmlFor="signup__userEmail"  className="UI__utility__screen-reader" >Email</label>
 
             <input
               type="text"
-              aria-label={labelText}
+              aria-label={inputPlaceholderUserName}
               aria-required="true"
+              className="UI__form__content__input-text"
+              placeholder={inputPlaceholderEmail}
               name="signup__userEmail"
               {...register("userSignupEmail")}
             />
           </div>
 
           <div className="UI__form__content__input-row">
-            <label htmlFor="signup__userEmailConfirm">Confirm Email</label>
+            <label htmlFor="signup__userEmailConfirm"  className="UI__utility__screen-reader" >Confirm Email</label>
 
             <input
               type="text"
-              aria-label={labelText}
+              aria-label={inputPlaceholderConfirmEmail}
+              placeholder={inputPlaceholderConfirmEmail}
               aria-required="true"
+              className="UI__form__content__input-text"
               name="signup__userEmailConfirm"
               {...register("userSignupConfirmEmail")}
+
             />
           </div>
 
           <div className="UI__form__content__checkbox-row">
-            {selectGenre.map((item, index) => {
+            {selectGenre.map((item) => {
               return (
-                <label key={item.id} htmlFor={item.label}>
+               <div key={item.id} className="UI__checkbox__input-wrapper">
                   <input
                     type="checkbox"
-                    value={item.name}
-                    {...register("genreIsChecked")}
+                    id={item.label}
+                    aria-label={inputPlaceholderEnterGenre}
+                    aria-required="true"
+                    value={item.name} className="UI__checkbox__input"
+                    {...register("genreIsChecked")}  
                     onChange={handleCheckboxIsChecked}
                   />
-                  <span>{item.name}</span>
+                   <label htmlFor={item.label}  data-content={item.label} className="UI__checkbox__input-label">
+                  {item.name} 
+
                 </label>
+                </div>
               );
             })}
           </div>
           <div className="UI__form__content__input-row">
-            <button type="submit">submit form</button>
+            <button type="submit" className="UI__button-submit">confirm and signup</button>
+         
+      
+         
           </div>
         </form>
       </div>
+       
     </>
   );
 }
+

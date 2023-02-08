@@ -8,14 +8,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
-
-
+import New from "./pages/New";
+import Explore from "./pages/Explore";
+import FAQ from "./pages/Faq";
+ 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Header />}>
       <Route index element={<Home />} />
-      <Route path="About" element={<About />} />
+      <Route path="New" element={<New />} />
+      <Route path="Explore" element={<Explore />} />
+      <Route path="Faq" element={<FAQ />} />
     </Route>
   )
 );
