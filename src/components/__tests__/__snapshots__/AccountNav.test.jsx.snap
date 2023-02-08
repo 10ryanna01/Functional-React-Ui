@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+Array [
+  <div
+    className="UI__header__acc-nav"
+  >
+    <div
+      className="UI__header__acc-nav__list"
+    >
+      <button
+        className=" UI__utility__button-reset UI__header__acc-nav__list__item"
+        onClick={[Function]}
+      >
+        <svg
+          className="UI__header__acc-nav__list__item__icon"
+        >
+          Icon-Add-User.svg
+        </svg>
+        <h3
+          className="UI__header__acc-nav__list__item__copy"
+          data-testid="AccNavtestC"
+        >
+          sign up
+        </h3>
+      </button>
+      <button
+        className="UI__utility__button-reset"
+        onClick={[Function]}
+      >
+        <svg
+          className="UI__header__acc-nav__list__item__icon"
+        >
+          Icon-Login.svg
+        </svg>
+        <h3
+          className="UI__header__acc-nav__list__item__copy"
+          data-testid="AccNavtestB"
+        >
+          sign in
+        </h3>
+      </button>
+    </div>
+  </div>,
+  <div
+    data-testid="AccNavtestA"
+  />,
+]
+`;

@@ -11,7 +11,7 @@ export default function AccountNav() {
   const logUserInToggled = localStorage.getItem("user-logged-in") === "true";
 
   const [logUserIn, setLoguserIn] = useState(logUserInToggled);
-  const [userSignUp, setUserSignUp] = useState(true);
+  const [userSignUp, setUserSignUp] = useState(false);
   const [userAccontSettings, setAccontSettings] = useState(false);
   const [applyOverlay, setApplyOverlay] = useState(false);
 
@@ -55,13 +55,14 @@ export default function AccountNav() {
               className=" UI__utility__button-reset UI__header__acc-nav__list__item"
               onClick={handleSignUpStepper}
             >
+              
               <IconAddUser className="UI__header__acc-nav__list__item__icon" />
-              <h3 className="UI__header__acc-nav__list__item__copy">sign up</h3>
+              <h3 className="UI__header__acc-nav__list__item__copy" data-testid="AccNavtestC">sign up</h3>
             </button>
 
             <button className="UI__utility__button-reset" onClick={handleLogIn}>
               <IconLogin className="UI__header__acc-nav__list__item__icon" />
-              <h3 className="UI__header__acc-nav__list__item__copy">sign in</h3>
+              <h3 className="UI__header__acc-nav__list__item__copy" data-testid="AccNavtestB">sign in</h3>
             </button>
           </div>
         ) : (
@@ -86,7 +87,7 @@ export default function AccountNav() {
           </>
         )}
       </div>
-      <div ref={userSignUpRef}>
+      <div data-testid="AccNavtestA" ref={userSignUpRef}>
         {userSignUp ? (
           <>
             <div className="UI__signup-form">
@@ -96,7 +97,7 @@ export default function AccountNav() {
         ) : null}
       </div>
 
-      {applyOverlay ? <div className="overlay"></div> : null}
+      {applyOverlay ? <div className="overlay" data-testid=""testD></div> : null}
     </>
   );
 }

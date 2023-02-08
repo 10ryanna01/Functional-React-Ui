@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -80,10 +80,11 @@ export default function AccountSignUpStepper({
   const signUPSchema = yup.object().shape({
     userName: yup
       .string()
-      .required("- Dont for get to add a user name")
-      .min(4)
-      .max(20),
-    
+
+      .min(4) 
+      .max(20)
+      .required("- Dont for get to add a user name"),
+
     userSignupEmail: yup
       .string()
       .email()
@@ -131,12 +132,9 @@ export default function AccountSignUpStepper({
 
   return (
     <div>
-
       {signUpStepperPartOne ? (
         <>
           <div className="UI__signup-form__header">
-
-      
             <button
               className="UI__utility__button-reset UI__utility__default-close-position"
               onClick={handleSignUpClose}
@@ -149,35 +147,33 @@ export default function AccountSignUpStepper({
             </h2>
 
             <div className="UI__stepper">
-        <div className="UI__stepper__item UI__stepper__complete">
-          <i className="UI__stepper-icon-background">1</i>
-          <span className="UI__stepper__label">sign up</span>
-        </div>
+              <div className="UI__stepper__item UI__stepper__complete">
+                <i className="UI__stepper-icon-background">1</i>
+                <span className="UI__stepper__label">sign up</span>
+              </div>
 
-        <div className="stepper-connector" aria-hidden="true">
-          <hr />
-        </div>
+              <div className="stepper-connector" aria-hidden="true">
+                <hr />
+              </div>
 
-        <div className="UI__stepper__item UI__stepper__complete UI__stepper__complete-last UI__stepper__faded">
-          <i className="UI__stepper-icon-background">2</i>
-          <span className="UI__stepper__label">completed</span>
-        </div>
-      </div>
-            
+              <div className="UI__stepper__item UI__stepper__complete UI__stepper__complete-last UI__stepper__faded">
+                <i className="UI__stepper-icon-background">2</i>
+                <span className="UI__stepper__label">completed</span>
+              </div>
+            </div>
 
-          {/* close header */}
-            
+            {/* close header */}
           </div>
           <div className="UI__signup-form__body">
             <div className="UI__signup-form__body__errors">
               <p className="UI__form__content__validation-error">
-                  {errors.userName?.message}
+                {errors.userName?.message}
               </p>
               <p className="UI__form__content__validation-error">
                 {errors.userSignupEmail?.message}
               </p>
               <p className="UI__form__content__validation-error">
-                 {errors.userSignupConfirmEmail?.message}
+                {errors.userSignupConfirmEmail?.message}
               </p>
               <p className="UI__form__content__validation-error">
                 {errors.genreIsChecked?.message}
@@ -219,7 +215,7 @@ export default function AccountSignUpStepper({
                   type="text"
                   aria-label={inputPlaceholderUserName}
                   aria-required="true"
-                  className="UI__form__content__input-text"
+                  className="UI__form__content__input-text UI__utility__copy__transform--off"
                   placeholder={inputPlaceholderEmail}
                   name="signup__userEmail"
                   {...register("userSignupEmail")}
@@ -239,7 +235,7 @@ export default function AccountSignUpStepper({
                   aria-label={inputPlaceholderConfirmEmail}
                   placeholder={inputPlaceholderConfirmEmail}
                   aria-required="true"
-                  className="UI__form__content__input-text"
+                  className="UI__form__content__input-text UI__utility__copy__transform--off"
                   name="signup__userEmailConfirm"
                   {...register("userSignupConfirmEmail")}
                 />
@@ -255,9 +251,9 @@ export default function AccountSignUpStepper({
                         aria-label={inputPlaceholderEnterGenre}
                         aria-required="true"
                         value={item.name}
-                        className="UI__checkbox__input"
-                        {...register("genreIsChecked")}
+                        className="UI__checkbox__input "
                         onChange={handleCheckboxIsChecked}
+                        {...register("genreIsChecked")}
                       />
                       <label
                         htmlFor={item.label}
@@ -283,23 +279,19 @@ export default function AccountSignUpStepper({
       {signUpStepperParTwo ? (
         <>
           <div className="UI__signup-form__header">
-
-      
-
-
             <h2 className="UI__signup-form__header__title UI__utility__subtitle-copy">
               registration complete{" "}
             </h2>
 
             <p className="UI__utility__body-copy UI__utility__text-align-center">
-            🎉🥳
-            </p> 
+              🎉🥳
+            </p>
             <p className="UI__utility__body-copy UI__utility__text-align-center">
-              Your're all set!             </p> 
+              Your're all set!{" "}
+            </p>
             <p className="UI__utility__body-copy UI__utility__text-align-center">
-            Check your email inbox to confirm your accout with us. 
-              
-            </p> 
+              Check your email inbox to confirm your accout with us.
+            </p>
           </div>
           <div className="UI__signup-form__footer">
             <button

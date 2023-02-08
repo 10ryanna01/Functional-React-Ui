@@ -48,12 +48,17 @@ export default function CardsData(props) {
       <>
         
         <div className="UI__sort-view">
+          <div className="UI__sort-view__toggle">
         {addSortByGrid ?  
-        <IconList className="UI__utility__icon__l" onClick={handleToggleGrid} />
-          : 
-          <IconGrid className="UI__utility__icon__l" onClick={handleToggleGrid} />
-        
+        <button className="UI__utility__button-reset" onClick={handleToggleGrid}>
+        <IconList className="UI__utility__icon__l"  />
+        </button> : 
+                <button className="UI__utility__button-reset" onClick={handleToggleGrid}>
+          <IconGrid className="UI__utility__icon__l"  />
+          </button>
         }
+</div>
+
         <h2 className="UI__utility__results-title">search results for "{searchValue}" </h2>
         </div> 
         <CardsTemplate movies={movies} addSortByGrid={addSortByGrid} addSortByGridDefault={addSortByGridDefault}  />

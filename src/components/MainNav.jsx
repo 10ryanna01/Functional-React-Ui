@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { IconBurger, IconClose } from "../assets/Index";
 import AccountNav from "./AccountNav";
 import ToggleTheme from "./ToggleTheme";
@@ -58,6 +58,7 @@ export default function MainNav() {
         <nav className="UI__primary-nav">
           <ul className="UI__primary-nav__list">
               
+
               {mappedNavListItems.map((navItem, index) => {
                         return (  <li key={index} className="UI__primary-nav__list__item">
                           <a
@@ -96,33 +97,17 @@ export default function MainNav() {
               </div>
 
               <ul className="UI__primary-nav-mobile__list">
-                <li className="UI__primary-nav-mobile__list__item">
-                  <a
-                    className="UI__primary-nav-mobile__list__item__link"
-                    href="/"
-                    title=""
-                  >
-                    explore
-                  </a>
-                </li>
-                <li className="UI__primary-nav-mobile__list__item">
-                  <a
-                    className="UI__primary-nav-mobile__list__item__link"
-                    href="/"
-                    title=""
-                  >
-                    ask the AI{" "}
-                  </a>
-                </li>
-                <li className="UI__primary-nav-mobile__list__item">
-                  <a
-                    className="UI__primary-nav-mobile__list__item__link"
-                    href="/"
-                    title=""
-                  >
-                    top 100
-                  </a>
-                </li>
+              {mappedNavListItems.map((navItem, index) => {
+                        return ( <li key={index} className="UI__primary-nav-mobile__list__item">
+                          <Link to={navItem.navItemLink}  className="UI__primary-nav-mobile__list__item__link"  title={navItem.navItemTitleText}>
+                          
+                           
+                                {navItem.navName}</Link>
+                        </li> );
+                      })}
+        
+
+             
               </ul>
 
               <div className=" UI__utility__selector UI__primary-nav-mobile__footer">

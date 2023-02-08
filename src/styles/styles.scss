@@ -39,9 +39,15 @@ html {
     utilities
 ================= */
 
-
 .UI__utility {
-  &__text-align-center{
+
+  &__copy__transform--off{
+    text-transform: none !important;
+  }
+&__hover-focus--transition{
+  transition: all  0.5s ease-in-out;
+}
+  &__text-align-center {
     text-align: center;
   }
   &__screen-reader {
@@ -54,6 +60,7 @@ html {
       display: flex;
     }
   }
+  // typography
 
   &__fontfamily {
     font-family: "Roboto", sans-serif;
@@ -95,7 +102,7 @@ html {
   }
   &__body-error-text {
     color: theme-var($--Brand-Color-Error);
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1;
   }
   &__copy-link {
@@ -117,9 +124,11 @@ html {
     background: theme-var($--Brand-Color-TransparentBackground);
     background-color: theme-var($--Brand-Color-TransparentBackground);
     color: theme-var($--Brand-Color-Icon);
-
-    &:hover {
-      // transform: scale(1.1);
+    @extend .UI__utility__hover-focus--transition;
+    &:hover,
+    &:focus {
+      @extend .UI__utility__hover-focus--transition;
+      color: theme-var($--Brand-Color-Copy-Link) ;
     }
   }
 
@@ -136,6 +145,7 @@ html {
     padding: 0;
     border: 0;
     cursor: pointer;
+    
   }
 
   /*   utility -- spacers */
@@ -218,6 +228,7 @@ html {
       grid-area: siteLogo;
       width: 70px;
       @extend .UI__animation__spin;
+  
     }
 
     &__title {
@@ -227,10 +238,17 @@ html {
       align-self: self-end;
       &__copy {
         @extend .UI__utility__title-copy;
+        @extend .UI__utility__hover-focus--transition;
+        &:hover, &:focus {
+        @extend .UI__utility__hover-focus--transition;
+          color: theme-var($--Brand-Color-Icon) ;
+      
+        }
       }
       &__link {
         text-decoration: none;
         display: contents;
+        
       }
     }
 
@@ -430,6 +448,7 @@ html {
       align-items: center;
       &__item {
         display: contents;
+        
       }
 
       &__item__link {
@@ -440,10 +459,6 @@ html {
         flex-flow: column;
         padding: 1rem;
 
-        &:hover {
-          background: theme-var($--Brand-Color-Background);
-          color: theme-var($--Brand-Color-Border);
-        }
       }
     }
 
@@ -467,6 +482,12 @@ html {
 
       &__item__link {
         @extend .UI__utility__copy-link;
+        @extend .UI__utility__hover-focus--transition;
+        &:hover, &:focus {
+          @extend .UI__utility__hover-focus--transition;
+          color: theme-var($--Brand-Color-Icon) ;
+      
+        }
       }
     }
   }
@@ -479,18 +500,16 @@ html {
     width: 180px;
     position: relative;
     margin: 0 auto;
-    &__faded{
+    &__faded {
       opacity: 0.3 !important;
     }
     .UI__stepper__item,
     .UI__stepper__connector {
       display: table-cell;
-      
     }
     .UI__stepper__item {
       width: 45px;
       text-align: center;
-      
 
       &.UI__stepper__complete {
         .UI__stepper-icon-background {
@@ -509,7 +528,7 @@ html {
       .UI__stepper__label {
         display: none;
         position: absolute;
-        top:30px;
+        top: 30px;
         left: -7px;
         text-align: center;
       }
@@ -525,17 +544,15 @@ html {
       }
     }
 
-  
-      .UI__stepper__item {
-        position: relative;
+    .UI__stepper__item {
+      position: relative;
 
-        .UI__stepper__label {
-          display: flex;
-          flex-flow: column;
-        }
+      .UI__stepper__label {
+        display: flex;
+        flex-flow: column;
       }
     }
- 
+  }
 
   .UI__stepper-icon-background {
     width: 24px;
@@ -591,6 +608,10 @@ html {
   }
   &__checkbox__input-wrapper {
     border: 2px dashed theme-var($--Brand-Color-TransparentBackground);
+    
+    display: flex;
+    align-items: center;
+
     &:focus,
     &:focus-within {
       border: 2px dashed theme-var($--Brand-Color-Copy-Body);
@@ -695,7 +716,7 @@ html {
       border-top: 2px dashed theme-var($--Brand-Color-TransparentBackground);
       border-bottom: 2px dashed theme-var($--Brand-Color-Border);
       color: theme-var($--Brand-Color-Copy-Body);
-
+      text-transform: capitalize;
       padding: 1rem;
       background: theme-var($--Brand-Color-TransparentBackground);
       max-width: 400px;
@@ -703,11 +724,18 @@ html {
       text-align: center;
     }
 
-    &__input-search,
-    &__input-search:focus {
+    &__input-search {
       @extend .UI__form__content__input-text;
+      @extend .UI__utility__hover-focus--transition;
       margin-top: 2rem;
+      border: 2px dashed theme-var($--Brand-Color-Border);
+           
+      &:hover, &:focus {
+        border: 2px dashed theme-var($--Brand-Color-Copy-Body);
+      }
+     
     }
+ 
   }
 
   /* ===================== 
@@ -757,17 +785,17 @@ html {
       @media (max-width: 860px) {
         // transform: scale(0.6) translate(0%, -100px);
       }
-      &__errors{
+      &__errors {
         padding-top: 1rem;
-        height: 75px; 
+        height: 75px;
         text-align: left;
+        margin: 0 auto;
+        @media screen and (max-width: 4800px) {
+          padding-top: 0.5rem;
+        }
       }
     }
 
-    
-
-     
-    
     &__footer {
       display: flex;
       flex-flow: column;
@@ -804,6 +832,16 @@ html {
     justify-content: space-between;
     margin-top: 1rem;
     margin-bottom: 1rem;
+
+    &__toggle{
+     visibility: visible ;
+   
+
+      @media(max-width: 1150px) {
+          visibility: hidden;
+       
+      }
+    }
   }
   //   close UI
 }
