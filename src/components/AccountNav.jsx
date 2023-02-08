@@ -24,8 +24,7 @@ export default function AccountNav() {
   useEffect(() => {
     let handleExitUserSignUp = (e) => {
       if (!userSignUpRef.current.contains(e.target)) {
-        setUserSignUp(false);
-
+        setUserSignUp(false); 
         setApplyOverlay(false);
       }
     };
@@ -91,7 +90,7 @@ export default function AccountNav() {
         {userSignUp ? (
           <>
             <div className="UI__signup-form">
-              <AccountSignUpStepper />
+              <AccountSignUpStepper  setApplyOverlay={setApplyOverlay} setUserSignUp={setUserSignUp} />
             </div>
           </>
         ) : null}

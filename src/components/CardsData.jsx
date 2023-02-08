@@ -6,7 +6,9 @@ import LiveSearch from "./LiveSearch";
 export default function CardsData(props) {
   
   const [movies, setMovies] = useState([]);
-  const [addSortByGrid, setAddSortByGrid] = useState(false);
+  
+  const [addSortByGridDefault, seAddSortByGridDefault] = useState("UI__card-container");
+  const [addSortByGrid, setAddSortByGrid] = useState('');
   const [searchValue, setSearchValue] = useState(`${props.searchValue}`);
   /*  fetch movie data */
 
@@ -15,8 +17,10 @@ export default function CardsData(props) {
 
   const handleToggleGrid = () => {
     setAddSortByGrid("UI__card-container-grid");
+    seAddSortByGridDefault("");
     if (addSortByGrid){
-      setAddSortByGrid(false);
+      setAddSortByGrid("");
+      seAddSortByGridDefault("UI__card-container");
     }
     
   };
@@ -51,8 +55,8 @@ export default function CardsData(props) {
         
         }
         <h2 className="UI__utility__results-title">search results for "{searchValue}" </h2>
-        </div>
-        <CardsTemplate movies={movies} addSortByGrid={addSortByGrid}  />
+        </div> 
+        <CardsTemplate movies={movies} addSortByGrid={addSortByGrid} addSortByGridDefault={addSortByGridDefault}  />
       </>
     </>
   );

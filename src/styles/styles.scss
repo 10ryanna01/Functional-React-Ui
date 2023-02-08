@@ -9,7 +9,21 @@ body,
 html {
   font-family: "Roboto", sans-serif;
 }
+//////////////
+// scrollbars
+/////////////
+///
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #666;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
 /* toggletheme */
 :root .UI__toggle-theme__light {
   @include spread-map($theme-map-light);
@@ -25,9 +39,11 @@ html {
     utilities
 ================= */
 
-.UI__utility {
 
- 
+.UI__utility {
+  &__text-align-center{
+    text-align: center;
+  }
   &__screen-reader {
     @include screen-reader-only;
   }
@@ -60,6 +76,7 @@ html {
     font-size: 1.8rem;
     font-weight: 300;
     line-height: 1;
+    text-transform: capitalize;
   }
 
   &__results-title {
@@ -118,6 +135,7 @@ html {
     background: transparent;
     padding: 0;
     border: 0;
+    cursor: pointer;
   }
 
   /*   utility -- spacers */
@@ -125,12 +143,16 @@ html {
   &__m-l-auto {
     margin-left: auto;
   }
+
+  &__default-close-position {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 }
 
 /*   ================ */
 .UI {
-  
-
   button,
   a {
     /* fix for tabbing elements on page */
@@ -234,21 +256,26 @@ html {
     }
   }
   &__card-container-grid {
+    display: grid;
     grid-template-columns: 1fr;
     grid-auto-flow: column;
-    grid-template-columns: repeat(1, 300px) !important;
-    justify-content: space-between !important;
-    width: 100% !important;
+    grid-template-columns: repeat(1, 275px);
+    justify-content: space-between;
+    width: 100%;
     overflow-x: scroll;
+    gap: 1rem;
 
-    @media screen and (max-width: 1024px) {
-      grid-template-columns: repeat(3, 300px);
+    @media screen and (max-width: 1150px) {
+      grid-template-columns: repeat(3, 275px);
       grid-auto-flow: row;
-      justify-content: center !important;
+      width: fit-content;
+      margin: 0 auto;
     }
     @media screen and (max-width: 960px) {
       grid-template-columns: repeat(2, auto);
       grid-auto-flow: row;
+
+      margin: 0 auto;
     }
 
     @media screen and (max-width: 640px) {
@@ -443,6 +470,85 @@ html {
       }
     }
   }
+  ///////////////////////
+  // stepper
+  ///////////////////////
+
+  .UI__stepper {
+    display: table;
+    width: 180px;
+    position: relative;
+    margin: 0 auto;
+    &__faded{
+      opacity: 0.3 !important;
+    }
+    .UI__stepper__item,
+    .UI__stepper__connector {
+      display: table-cell;
+      
+    }
+    .UI__stepper__item {
+      width: 45px;
+      text-align: center;
+      
+
+      &.UI__stepper__complete {
+        .UI__stepper-icon-background {
+          background: theme-var($--Brand-Color-Border);
+        }
+      }
+      &.UI__stepper__complete-last {
+        .UI__stepper__label {
+          width: 100%;
+          display: flex;
+          flex-flow: column;
+          left: -10px;
+        }
+      }
+
+      .UI__stepper__label {
+        display: none;
+        position: absolute;
+        top:30px;
+        left: -7px;
+        text-align: center;
+      }
+    }
+    .UI__stepper__connector {
+      hr {
+        height: 2px;
+        margin: 0 - 1.3em;
+        transform: translateY(-0.3em);
+        color: theme-var($--Brand-Color-Copy-Body);
+        background-color: theme-var($--Brand-Color-Copy-Body);
+        border: none;
+      }
+    }
+
+  
+      .UI__stepper__item {
+        position: relative;
+
+        .UI__stepper__label {
+          display: flex;
+          flex-flow: column;
+        }
+      }
+    }
+ 
+
+  .UI__stepper-icon-background {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    font-weight: bold;
+    font-style: normal;
+    color: #fff;
+    line-height: 24px;
+    text-align: center;
+    background-color: #999;
+    border-radius: 50%;
+  }
 
   /* ===================== 
         Pages  
@@ -463,28 +569,34 @@ html {
   // ====================================
   //     forms  -- checkboxes and radios
   // =====================================
-  &__button-submit{
-    background: theme-var($--Brand-Color-Overlay);
-    color: theme-var($--Brand-Color-Border);
-    padding:1rem;
+  &__button-primary {
+    background: theme-var($--Brand-Color-Background);
+    color: theme-var($--Brand-Color-Copy-Body);
+    border: 2px solid theme-var($--Brand-Color-Border) !important;
+    padding: 1rem;
+    @extend .UI__utility__body-copy;
     transition: all ease 0.4s;
-    transform:scale(1.0);
+    margin-top: 2rem;
+    transform: scale(1);
+    cursor: pointer;
+    user-select: none;
     &:focus,
-    &:hover{
-      color: theme-var($--Brand-Color-Copy-Body);
-      background: theme-var($--Brand-Color-Icon);
-      
-      transform:scale(1.1);
+    &:hover {
+      color: theme-var($--Brand-Color-Border);
+      background: theme-var($--Brand-Color-TransparentBackground);
+      border: 2px solid theme-var($--Brand-Color-Border);
+
+      transform: scale(1.04);
     }
   }
-  &__checkbox__input-wrapper{
-    border: 2px dashed  theme-var($--Brand-Color-TransparentBackground) ;
-    &:focus, &:focus-within{
-      border: 2px dashed theme-var($--Brand-Color-Copy-Body) ;
-    } 
+  &__checkbox__input-wrapper {
+    border: 2px dashed theme-var($--Brand-Color-TransparentBackground);
+    &:focus,
+    &:focus-within {
+      border: 2px dashed theme-var($--Brand-Color-Copy-Body);
+    }
   }
   &__checkbox__input-wrapper input[type="checkbox"] {
-
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
@@ -495,7 +607,7 @@ html {
     outline: 0;
     cursor: pointer;
     transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
-   
+
     &::before {
       position: absolute;
       content: "";
@@ -573,7 +685,6 @@ html {
       @media (max-width: 480px) {
         width: 400px;
         transform: scale(0.7) translate(-20%, 0);
-        
       }
     }
 
@@ -603,10 +714,11 @@ html {
         signup
     ===================== */
   &__signup-form {
+    user-select: none;
     display: block;
     position: fixed;
     border-radius: 8px;
-    height: 680px;
+    max-height: 725px;
     width: 460px;
     transform: translate(-50%, -50%);
     padding: 1rem;
@@ -624,7 +736,7 @@ html {
       transform: translate(0, 100px);
       top: 0;
       left: 0;
-      height: 680px;
+      max-height: 725px;
     }
 
     &__header {
@@ -645,6 +757,21 @@ html {
       @media (max-width: 860px) {
         // transform: scale(0.6) translate(0%, -100px);
       }
+      &__errors{
+        padding-top: 1rem;
+        height: 75px; 
+        text-align: left;
+      }
+    }
+
+    
+
+     
+    
+    &__footer {
+      display: flex;
+      flex-flow: column;
+      margin: 2rem auto;
     }
   }
 
@@ -687,25 +814,16 @@ animation
 ====================== 
 */
 
-
-
-
-
- 
-
-.overlay{
-  
-      
- 
-        position: fixed;
-        z-index: 4;
-        background: theme-var($--Brand-Color-Background);
-        opacity: 0.7;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        top: 0;
-        left: 0;
+.overlay {
+  position: fixed;
+  z-index: 4;
+  background: theme-var($--Brand-Color-Background);
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
 }
 .UI__animation {
   &__spin {

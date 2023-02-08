@@ -3,7 +3,7 @@ export default function CardsTemplate(props) {
 
   return (
     <>
-      <div className={`UI__card-container ${props.addSortByGrid}`}>
+      <div className={`${props.addSortByGridDefault} ${props.addSortByGrid}`}>
         {props.movies?.map((movie, index) => (
           <div key={index} className="UI__card">
             <div key={index} className="UI__card__body">
