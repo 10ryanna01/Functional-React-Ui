@@ -92,14 +92,14 @@ export default function MainNav() {
                 />
 
                 <div className="UI__utility__selector  UI__primary-nav-mobile__header__account">
-                  <AccountNav />
+                  <AccountNav  mobileNavMenu={mobileNavMenu} setMobileNavMenu={setMobileNavMenu} />
                 </div>
               </div>
 
               <ul className="UI__primary-nav-mobile__list">
               {mappedNavListItems.map((navItem, index) => {
                         return ( <li key={index} className="UI__primary-nav-mobile__list__item">
-                          <Link to={navItem.navItemLink}  className="UI__primary-nav-mobile__list__item__link"  title={navItem.navItemTitleText}>
+                          <Link to={navItem.navItemLink}      onClick={handleToggleMobileNavExit} className="UI__primary-nav-mobile__list__item__link"  title={navItem.navItemTitleText}>
                           
                            
                                 {navItem.navName}</Link>

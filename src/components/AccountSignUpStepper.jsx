@@ -8,6 +8,8 @@ import { IconCheck, IconClose } from "../assets/Index";
 export default function AccountSignUpStepper({
   setUserSignUp,
   setApplyOverlay,
+  mobileNavMenu,
+setMobileNavMenu,
 }) {
   /* stepper states made of of 3 parts */
 
@@ -128,6 +130,7 @@ export default function AccountSignUpStepper({
   const handleSignUpClose = () => {
     setUserSignUp(false);
     setApplyOverlay(false);
+    setMobileNavMenu(false);
   };
 
   return (

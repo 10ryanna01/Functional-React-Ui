@@ -7,7 +7,7 @@ import {
 } from "../assets/Index";
 import AccountSignUpStepper from "./AccountSignUpStepper";
 
-export default function AccountNav() {
+export default function AccountNav({mobileNavMenu, setMobileNavMenu}) {
   const logUserInToggled = localStorage.getItem("user-logged-in") === "true";
 
   const [logUserIn, setLoguserIn] = useState(logUserInToggled);
@@ -40,6 +40,7 @@ export default function AccountNav() {
   };
   const handleSignUpStepper = () => {
     setUserSignUp(true);
+    
     setApplyOverlay(true);
   };
   const handleLogOut = () => {
@@ -91,7 +92,7 @@ export default function AccountNav() {
         {userSignUp ? (
           <>
             <div className="UI__signup-form">
-              <AccountSignUpStepper  setApplyOverlay={setApplyOverlay} setUserSignUp={setUserSignUp} />
+              <AccountSignUpStepper  setApplyOverlay={setApplyOverlay} setUserSignUp={setUserSignUp} mobileNavMenu={mobileNavMenu} setMobileNavMenu={setMobileNavMenu} />
             </div>
           </>
         ) : null}
