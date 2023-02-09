@@ -9,7 +9,8 @@ export default function AccountSignUpStepper({
   setUserSignUp,
   setApplyOverlay,
   mobileNavMenu,
-setMobileNavMenu,
+  setMobileNavMenu,
+  setCollapseMobileNav,
 }) {
   /* stepper states made of of 3 parts */
 
@@ -83,7 +84,7 @@ setMobileNavMenu,
     userName: yup
       .string()
 
-      .min(4) 
+      .min(4)
       .max(20)
       .required("- Dont for get to add a user name"),
 
@@ -131,6 +132,7 @@ setMobileNavMenu,
     setUserSignUp(false);
     setApplyOverlay(false);
     setMobileNavMenu(false);
+    setCollapseMobileNav("");
   };
 
   return (

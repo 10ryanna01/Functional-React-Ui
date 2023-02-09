@@ -7,7 +7,11 @@ import {
 } from "../assets/Index";
 import AccountSignUpStepper from "./AccountSignUpStepper";
 
-export default function AccountNav({mobileNavMenu, setMobileNavMenu}) {
+export default function AccountNav({
+  mobileNavMenu,
+  setMobileNavMenu,
+  setCollapseMobileNav,
+}) {
   const logUserInToggled = localStorage.getItem("user-logged-in") === "true";
 
   const [logUserIn, setLoguserIn] = useState(logUserInToggled);
@@ -24,7 +28,8 @@ export default function AccountNav({mobileNavMenu, setMobileNavMenu}) {
   useEffect(() => {
     let handleExitUserSignUp = (e) => {
       if (!userSignUpRef.current.contains(e.target)) {
-        setUserSignUp(false); 
+        setUserSignUp(false);
+        setCollapseMobileNav("");
         setApplyOverlay(false);
       }
     };
@@ -36,11 +41,11 @@ export default function AccountNav({mobileNavMenu, setMobileNavMenu}) {
 
   const handleLogIn = () => {
     setLoguserIn(true);
-    setUserSignUp(false); 
+    setUserSignUp(false);
   };
   const handleSignUpStepper = () => {
     setUserSignUp(true);
-    
+    setCollapseMobileNav("UI__utility__offscreen");
     setApplyOverlay(true);
   };
   const handleLogOut = () => {
@@ -56,14 +61,23 @@ export default function AccountNav({mobileNavMenu, setMobileNavMenu}) {
               className=" UI__utility__button-reset UI__header__acc-nav__list__item"
               onClick={handleSignUpStepper}
             >
-              
               <IconAddUser className="UI__header__acc-nav__list__item__icon" />
-              <h3 className="UI__header__acc-nav__list__item__copy" data-testid="AccNavtestC">sign up</h3>
+              <h3
+                className="UI__header__acc-nav__list__item__copy"
+                data-testid="AccNavtestC"
+              >
+                sign up
+              </h3>
             </button>
 
             <button className="UI__utility__button-reset" onClick={handleLogIn}>
               <IconLogin className="UI__header__acc-nav__list__item__icon" />
-              <h3 className="UI__header__acc-nav__list__item__copy" data-testid="AccNavtestB">sign in</h3>
+              <h3
+                className="UI__header__acc-nav__list__item__copy"
+                data-testid="AccNavtestB"
+              >
+                sign in
+              </h3>
             </button>
           </div>
         ) : (
@@ -92,13 +106,21 @@ export default function AccountNav({mobileNavMenu, setMobileNavMenu}) {
         {userSignUp ? (
           <>
             <div className="UI__signup-form">
-              <AccountSignUpStepper  setApplyOverlay={setApplyOverlay} setUserSignUp={setUserSignUp} mobileNavMenu={mobileNavMenu} setMobileNavMenu={setMobileNavMenu} />
+              <AccountSignUpStepper
+                setApplyOverlay={setApplyOverlay}
+                setUserSignUp={setUserSignUp}
+                mobileNavMenu={mobileNavMenu}
+                setMobileNavMenu={setMobileNavMenu}
+                setCollapseMobileNav={setCollapseMobileNav}
+              />
             </div>
           </>
         ) : null}
       </div>
 
-      {applyOverlay ? <div className="overlay" data-testid=""testD></div> : null}
+      {applyOverlay ? (
+        <div className="overlay" data-testid="" testD></div>
+      ) : null}
     </>
   );
 }

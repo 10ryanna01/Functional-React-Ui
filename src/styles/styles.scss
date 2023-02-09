@@ -40,13 +40,15 @@ html {
 ================= */
 
 .UI__utility {
-
-  &__copy__transform--off{
+  &__offscreen {
+    left: 100%;
+  }
+  &__copy__transform--off {
     text-transform: none !important;
   }
-&__hover-focus--transition{
-  transition: all  0.5s ease-in-out;
-}
+  &__hover-focus--transition {
+    transition: all 0.5s ease-in-out;
+  }
   &__text-align-center {
     text-align: center;
   }
@@ -128,7 +130,7 @@ html {
     &:hover,
     &:focus {
       @extend .UI__utility__hover-focus--transition;
-      color: theme-var($--Brand-Color-Copy-Link) ;
+      color: theme-var($--Brand-Color-Copy-Link);
     }
   }
 
@@ -145,7 +147,6 @@ html {
     padding: 0;
     border: 0;
     cursor: pointer;
-    
   }
 
   /*   utility -- spacers */
@@ -228,7 +229,6 @@ html {
       grid-area: siteLogo;
       width: 70px;
       @extend .UI__animation__spin;
-  
     }
 
     &__title {
@@ -239,16 +239,15 @@ html {
       &__copy {
         @extend .UI__utility__title-copy;
         @extend .UI__utility__hover-focus--transition;
-        &:hover, &:focus {
-        @extend .UI__utility__hover-focus--transition;
-          color: theme-var($--Brand-Color-Icon) ;
-      
+        &:hover,
+        &:focus {
+          @extend .UI__utility__hover-focus--transition;
+          color: theme-var($--Brand-Color-Icon);
         }
       }
       &__link {
         text-decoration: none;
         display: contents;
-        
       }
     }
 
@@ -448,7 +447,6 @@ html {
       align-items: center;
       &__item {
         display: contents;
-        
       }
 
       &__item__link {
@@ -458,7 +456,6 @@ html {
         border-bottom: 2px solid theme-var($--Brand-Color-Border);
         flex-flow: column;
         padding: 1rem;
-
       }
     }
 
@@ -483,10 +480,10 @@ html {
       &__item__link {
         @extend .UI__utility__copy-link;
         @extend .UI__utility__hover-focus--transition;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           @extend .UI__utility__hover-focus--transition;
-          color: theme-var($--Brand-Color-Icon) ;
-      
+          color: theme-var($--Brand-Color-Icon);
         }
       }
     }
@@ -608,7 +605,7 @@ html {
   }
   &__checkbox__input-wrapper {
     border: 2px dashed theme-var($--Brand-Color-TransparentBackground);
-    
+
     display: flex;
     align-items: center;
 
@@ -729,13 +726,12 @@ html {
       @extend .UI__utility__hover-focus--transition;
       margin-top: 2rem;
       border: 2px dashed theme-var($--Brand-Color-Border);
-           
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         border: 2px dashed theme-var($--Brand-Color-Copy-Body);
       }
-     
     }
- 
   }
 
   /* ===================== 
@@ -833,13 +829,11 @@ html {
     margin-top: 1rem;
     margin-bottom: 1rem;
 
-    &__toggle{
-     visibility: visible ;
-   
+    &__toggle {
+      visibility: visible;
 
-      @media(max-width: 1150px) {
-          visibility: hidden;
-       
+      @media (max-width: 1150px) {
+        visibility: hidden;
       }
     }
   }
