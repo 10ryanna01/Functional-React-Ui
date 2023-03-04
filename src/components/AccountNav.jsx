@@ -11,6 +11,7 @@ export default function AccountNav({
   mobileNavMenu,
   setMobileNavMenu,
   setCollapseMobileNav,
+  collapseMobileNav,
 }) {
   const logUserInToggled = localStorage.getItem("user-logged-in") === "true";
 
@@ -21,36 +22,39 @@ export default function AccountNav({
 
   let userSignUpRef = useRef();
 
-  useEffect(() => {
-    localStorage.setItem("user-logged-in", logUserIn);
-  }, [logUserIn]);
-
-  useEffect(() => {
-    let handleExitUserSignUp = (e) => {
-      if (!userSignUpRef.current.contains(e.target)) {
-        setUserSignUp(false);
-        setCollapseMobileNav("");
-        setApplyOverlay(false);
-      }
-    };
-    document.addEventListener("mousedown", handleExitUserSignUp);
-    return () => {
-      document.removeEventListener("mousedown", handleExitUserSignUp);
-    };
-  }, []);
-
   const handleLogIn = () => {
     setLoguserIn(true);
     setUserSignUp(false);
   };
   const handleSignUpStepper = () => {
     setUserSignUp(true);
-    setCollapseMobileNav("UI__utility__offscreen");
+    // setCollapseMobileNav("UI__utility__offscreen");
     setApplyOverlay(true);
   };
   const handleLogOut = () => {
     setLoguserIn(false);
   };
+
+  useEffect(() => {
+    localStorage.setItem("user-logged-in", logUserIn);
+  }, [logUserIn]);
+
+  useEffect(() => {
+    let handleExitUserSignUp = (e) => {
+      
+      if (!userSignUpRef.current.contains(e.target)) {
+        setUserSignUp(false);
+        // setCollapseMobileNav("");
+        setApplyOverlay(false);
+      
+      }
+    };
+
+    document.addEventListener("mousedown", handleExitUserSignUp);
+    return () => {
+      document.removeEventListener("mousedown", handleExitUserSignUp);
+    };
+  }, []);
 
   return (
     <>
@@ -119,7 +123,7 @@ export default function AccountNav({
       </div>
 
       {applyOverlay ? (
-        <div className="overlay" data-testid="" testD></div>
+        <div className="overlay" data-testid="testD"></div>
       ) : null}
     </>
   );

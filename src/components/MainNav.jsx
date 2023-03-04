@@ -91,6 +91,7 @@ export default function MainNav() {
                       mobileNavMenu={mobileNavMenu}
                       setMobileNavMenu={setMobileNavMenu}
                       setCollapseMobileNav={setCollapseMobileNav}
+                      collapseMobileNav={collapseMobileNav}
                     />
                   </div>
                 </div>

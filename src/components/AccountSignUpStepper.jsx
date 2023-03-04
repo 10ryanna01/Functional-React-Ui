@@ -131,8 +131,8 @@ export default function AccountSignUpStepper({
   const handleSignUpClose = () => {
     setUserSignUp(false);
     setApplyOverlay(false);
-    setMobileNavMenu(false);
-    setCollapseMobileNav("");
+    // setMobileNavMenu(false);
+    // setCollapseMobileNav("");
   };
 
   return (
