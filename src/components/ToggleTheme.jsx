@@ -27,11 +27,11 @@ export default function ToggleTheme() {
     <>
       <div className="UI__header__theme ">
         {darkMode ? (
-          <button onClick={handletoggleThemeLight} className="UI__utility__icon__l">
+          <button  aria-label="enable light mode theme" onClick={handletoggleThemeLight} className="UI__utility__icon__l">
             <Sun />
           </button>
         ) : (
-          <button onClick={handletoggleThemeDark} className="UI__utility__icon__l">
+          <button   aria-label="enable dark mode theme" onClick={handletoggleThemeDark} className="UI__utility__icon__l">
             <IconDarkMode />
           </button>
         )}

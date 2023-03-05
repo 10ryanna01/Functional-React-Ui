@@ -70,7 +70,7 @@ export default function MainNav() {
           </ul>
         </nav>
         {/*  start mobile nav */}
-        <button className="UI__primary-nav-mobile-icon">
+        <button  aria-label="enable mobile navigation menu" className="UI__primary-nav-mobile-icon">
           <IconBurger
             className="UI__utility__icon__l"
             onClick={handleToggleMobileNav}

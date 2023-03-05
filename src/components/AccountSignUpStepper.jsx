@@ -131,8 +131,8 @@ export default function AccountSignUpStepper({
   const handleSignUpClose = () => {
     setUserSignUp(false);
     setApplyOverlay(false);
-    setMobileNavMenu(false);
-    setCollapseMobileNav("");
+   /*  // setMobileNavMenu(false);
+    // setCollapseMobileNav(""); */
   };
 
   return (
@@ -140,7 +140,7 @@ export default function AccountSignUpStepper({
       {signUpStepperPartOne ? (
         <>
           <div className="UI__signup-form__header">
-            <button
+            <button  aria-label="exit sign up button"
               className="UI__utility__button-reset UI__utility__default-close-position"
               onClick={handleSignUpClose}
             >
@@ -272,7 +272,7 @@ export default function AccountSignUpStepper({
                 })}
               </div>
               <div className="UI__form__content__input-row">
-                <button type="submit" className="UI__button-primary">
+                <button type="submit" className="UI__button-primary"  aria-label="submit sign up form button">
                   confirm and signup
                 </button>
               </div>
@@ -301,7 +301,7 @@ export default function AccountSignUpStepper({
           <div className="UI__signup-form__footer">
             <button
               className="UI__button-primary"
-              type="button"
+              type="button"  aria-label="exit sign up button"
               onClick={handleSignUpClose}
             >
               back to login

@@ -50,10 +50,10 @@ export default function CardsData(props) {
         <div className="UI__sort-view">
           <div className="UI__sort-view__toggle">
         {addSortByGrid ?  
-        <button className="UI__utility__button-reset" onClick={handleToggleGrid}>
+        <button  aria-label="enable grid view button" className="UI__utility__button-reset" onClick={handleToggleGrid}>
         <IconList className="UI__utility__icon__l"  />
         </button> : 
-                <button className="UI__utility__button-reset" onClick={handleToggleGrid}>
+                <button aria-label="disable grid view button" className="UI__utility__button-reset" onClick={handleToggleGrid}>
           <IconGrid className="UI__utility__icon__l"  />
           </button>
         }

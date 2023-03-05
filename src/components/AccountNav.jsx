@@ -61,7 +61,7 @@ export default function AccountNav({
       <div className="UI__header__acc-nav">
         {!logUserIn ? (
           <div className="UI__header__acc-nav__list">
-            <button
+            <button aria-label="sign up button"
               className=" UI__utility__button-reset UI__header__acc-nav__list__item"
               onClick={handleSignUpStepper}
             >
@@ -74,7 +74,7 @@ export default function AccountNav({
               </h3>
             </button>
 
-            <button className="UI__utility__button-reset" onClick={handleLogIn}>
+            <button   aria-label="sign in button" className="UI__utility__button-reset" onClick={handleLogIn}>
               <IconLogin className="UI__header__acc-nav__list__item__icon" />
               <h3
                 className="UI__header__acc-nav__list__item__copy"
@@ -86,14 +86,14 @@ export default function AccountNav({
           </div>
         ) : (
           <>
-            <button className="UI__utility__button-reset">
+            <button   aria-label="settings button" className="UI__utility__button-reset">
               <IconSettings className="UI__header__acc-nav__list__item__icon" />
               <h3 className="UI__header__acc-nav__list__item__copy">
                 {" "}
                 settings{" "}
               </h3>
             </button>
-            <button
+            <button  aria-label="logout button"
               className="UI__utility__button-reset"
               onClick={handleLogOut}
             >
