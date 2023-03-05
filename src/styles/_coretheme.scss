@@ -2,6 +2,7 @@ $--Brand-Color-Background: --Brand-Color-Background;
 $--Brand-Color-Copy-Body: --Brand-Color-Copy-Body;
 $--Brand-Color-Copy-Title: --Brand-Color-Copy-Title;
 $--Brand-Color-Copy-Link: --Brand-Color-Copy-Link;
+$--Brand-Color-Copy-Feature-Link: --Brand-Color-Copy-Feature-Link;
 $--Brand-Color-Border: --Brand-Color-Border;
 $--Brand-Color-Icon: --Brand-Color-Icon;
 $--Brand-Color-Error: --Brand-Color-Error;
@@ -17,6 +18,7 @@ $theme-map-light: (
   $--Brand-Color-Copy-Body: #252A34,
   $--Brand-Color-Copy-Title: #252A34,
   $--Brand-Color-Copy-Link: #FF2E63,
+  $--Brand-Color-Copy-Feature-Link: #FF2E63,
   $--Brand-Color-Border: #252A34,
   $--Brand-Color-Icon: #08D9D6,
   $--Brand-Color-Error: #FF2E63,
@@ -30,6 +32,8 @@ $theme-map-dark: (
   $--Brand-Color-Copy-Body: #eafff7,
   $--Brand-Color-Copy-Title: #eafff7,
   $--Brand-Color-Copy-Link: #fb2576,
+  $--Brand-Color-Copy-Feature-Link: #C8FF00,
+
   $--Brand-Color-Border: #fb2576,
   $--Brand-Color-Icon: #b6eada,
   $--Brand-Color-Error: #faa307,

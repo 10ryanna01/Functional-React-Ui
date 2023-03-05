@@ -3,9 +3,9 @@ import React from "react";
 export default function ParalaxTemplate() {
   return (
     <>
-      <h1 className="UI__paralax__content-title">
-        FAQ results from: <code>https://iask.ai/</code>
-      </h1>
+      <h2 className="UI__paralax__content-title"> Chatbot  @
+      <a href="iAsk.Ai" title="visit iAsk.Ai" className="UI__utility__copy-feature-link">iAsk.Ai</a>
+      </h2>
 
       <div class="UI__paralax__scroll-container">
         <div class="UI__paralax__scroll-area">
@@ -31,7 +31,7 @@ export default function ParalaxTemplate() {
             strengths and weaknesses. The "best" one for you will depend on your
             specific needs and preferences. However, here are some of the most
             popular and highly regarded static site generators: Jekyll, Hugo,
-            Gatsby, Next.js, Eleventy
+            Gatsby, Next.js, Eleventy.
           </p>
           <p className="UI__paralax__content-copy">
             Ultimately, the best static site generator for you will depend on
