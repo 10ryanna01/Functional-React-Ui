@@ -10,8 +10,8 @@ import {
 import Home from "./pages/Home";
 import New from "./pages/New";
 import Explore from "./pages/Explore";
-import FAQ from "./pages/Faq";
- 
+import FAQ from "./pages/Faq"; 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Header />}>
@@ -21,11 +21,14 @@ const router = createBrowserRouter(
       <Route path="Faq" element={<FAQ />} />
     </Route>
   )
-);
+); 
 
-function App() {
+
+
+function App() { 
   return (
     <>
+
       <RouterProvider  router={router} />
     </>
   );

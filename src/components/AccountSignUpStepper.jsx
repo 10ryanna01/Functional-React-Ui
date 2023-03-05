@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { IconCheck, IconClose } from "../assets/Index";
+import { IconClose } from "../assets/Index";
 
 export default function AccountSignUpStepper({
   setUserSignUp,
@@ -131,8 +131,8 @@ export default function AccountSignUpStepper({
   const handleSignUpClose = () => {
     setUserSignUp(false);
     setApplyOverlay(false);
-    // setMobileNavMenu(false);
-    // setCollapseMobileNav("");
+    setMobileNavMenu(false);
+    setCollapseMobileNav("");
   };
 
   return (

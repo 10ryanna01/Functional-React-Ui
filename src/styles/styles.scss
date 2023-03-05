@@ -234,7 +234,7 @@ html {
 
     width: 100%;
     max-width: 100%;
-    align-items: end;
+    align-items: flex-end;
     gap: 0;
     justify-content: space-between;
     border-bottom: 4px solid theme-var($--Brand-Color-Border);
@@ -819,7 +819,7 @@ html {
     padding: 0;
     gap: 1rem;
     margin: 0 auto;
-    align-items: end;
+    align-items: flex-end;
     justify-content: right;
 
     &__item {

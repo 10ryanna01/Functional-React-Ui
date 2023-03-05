@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Moon, Sun, IconDarkMode } from "../assets/Index";
+import { Sun, IconDarkMode } from "../assets/Index";
 import { DarkModeContext } from "../context/DarkModeContext";
 
 export default function ToggleTheme() {

@@ -4,7 +4,7 @@ export default function Home() {
   const [searchValue, setSearchValue] = useState("big");
   return (
     <>  
-     
+ 
       <CardsData searchValue={searchValue} /> 
      
 
