@@ -4,7 +4,7 @@ export default function ParalaxTemplate() {
   return (
     <>
       <h2 className="UI__paralax__content-title"> Chatbot  @
-      <a href="iAsk.Ai" title="visit iAsk.Ai" className="UI__utility__copy-feature-link">iAsk.Ai</a>
+      <a href="https://iask.ai/" title="visit iAsk.Ai" target="_blank" without rel="noreferrer" className="UI__utility__copy-feature-link">iAsk.Ai</a>
       </h2>
 
       <div class="UI__paralax__scroll-container">
