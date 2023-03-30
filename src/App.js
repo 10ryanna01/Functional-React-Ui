@@ -14,7 +14,7 @@ import FAQ from "./pages/Faq";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/Functional-React-Ui" element={<Header />}>
+    <Route path="/" element={<Header />}>
       <Route index element={<Home />} />
       <Route path="New" element={<New />} />
       <Route path="Explore" element={<Explore />} />
