@@ -20,8 +20,7 @@ export default function LiveSearch(props) {
             value={props.value}
             className="UI__form__content__input-search"
             name="search-field__input"
-            placeholder={searchlabelText} 
-         
+            placeholder={searchlabelText}
           />
         </div>
       </form>

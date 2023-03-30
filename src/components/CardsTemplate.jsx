@@ -15,16 +15,23 @@ export default function CardsTemplate(props) {
                   width="auto"
                   height="auto"
                 />
-              
-              <div className="UI__card__body__copy">
-                <h2 className="UI__card__body__copy__title">{movie.Title}</h2>
-                <h3 className="UI__card__body__copy__year">{movie.Year}</h3>
 
-                <a href={`${linkReviewIMDB}${movie.imdbID}`} target="_blank" rel="noreferrer" className="UI__card__body__copy__link"><h4 className="UI__card__body__copy__link__text">read reviews</h4></a>
-                
-              </div>
-              </div>
+                <div className="UI__card__body__copy">
+                  <h2 className="UI__card__body__copy__title">{movie.Title}</h2>
+                  <h3 className="UI__card__body__copy__year">{movie.Year}</h3>
 
+                  <a
+                    href={`${linkReviewIMDB}${movie.imdbID}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="UI__card__body__copy__link"
+                  >
+                    <h4 className="UI__card__body__copy__link__text">
+                      read reviews
+                    </h4>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ))}

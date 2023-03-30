@@ -25,7 +25,7 @@ html {
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
-/// select /// 
+/// select ///
 
 ::selection {
   color: theme-var($--Brand-Color-Border);
@@ -38,8 +38,6 @@ html {
 :root .UI__toggle-theme__dark {
   @include spread-map($theme-map-dark);
 }
-
-
 
 /* ============ */
 
@@ -67,7 +65,7 @@ html {
 
   &__display-mobile {
     display: none;
-    @media  (max-width: 860px) {
+    @media (max-width: 860px) {
       display: flex;
     }
   }
@@ -101,7 +99,7 @@ html {
     @extend .UI__utility__subtitle-copy;
     text-transform: capitalize;
     font-size: 1.2rem;
-    @media  (max-width: 960px) {
+    @media (max-width: 960px) {
       font-size: 1.3rem;
     }
   }
@@ -126,9 +124,9 @@ html {
     line-height: 1;
   }
   &__copy-feature-link {
-  @extend .UI__utility__copy-link; 
-  color: theme-var($--Brand-Color-Copy-Feature-Link);
-  font-size: inherit;
+    @extend .UI__utility__copy-link;
+    color: theme-var($--Brand-Color-Copy-Feature-Link);
+    font-size: inherit;
   }
 
   &__icon__l {
@@ -222,11 +220,11 @@ html {
     grid-template-areas: "siteLogo siteTitle  siteNav accNav siteTheme";
     grid-template-columns: 75px 170px 36% 210px 40px;
 
-    @media  (max-width: 860px) {
+    @media (max-width: 860px) {
       grid-template-columns: 75px 160px 50px 100px 40px;
     }
 
-    @media  (max-width: 859px) {
+    @media (max-width: 859px) {
       grid-template-columns: 50px 50% 50px;
       grid-template-areas: "siteLogo siteTitle  siteNav";
       align-items: stretch;
@@ -296,20 +294,20 @@ html {
     overflow-x: scroll;
     gap: 1rem;
 
-    @media  (max-width: 1150px) {
+    @media (max-width: 1150px) {
       grid-template-columns: repeat(3, 275px);
       grid-auto-flow: row;
       width: fit-content;
       margin: 0 auto;
     }
-    @media  (max-width: 960px) {
+    @media (max-width: 960px) {
       grid-template-columns: repeat(2, auto);
       grid-auto-flow: row;
 
       margin: 0 auto;
     }
 
-    @media  (max-width: 640px) {
+    @media (max-width: 640px) {
       grid-template-columns: repeat(1, auto);
       grid-auto-flow: row;
       width: fit-content;
@@ -326,16 +324,16 @@ html {
     margin: 0 auto;
 
     grid-template-columns: repeat(4, 275px);
-    @media  (max-width: 1150px) {
+    @media (max-width: 1150px) {
       grid-template-columns: repeat(3, auto);
       grid-auto-flow: row;
     }
-    @media  (max-width: 960px) {
+    @media (max-width: 960px) {
       grid-template-columns: repeat(2, auto);
       grid-auto-flow: row;
     }
 
-    @media  (max-width: 640px) {
+    @media (max-width: 640px) {
       grid-template-columns: repeat(1, auto);
       grid-auto-flow: row;
       width: fit-content;
@@ -479,7 +477,7 @@ html {
   &__primary-nav {
     width: 100%;
 
-    @media  (max-width: 860px) {
+    @media (max-width: 860px) {
       display: none;
     }
     &__list {
@@ -800,7 +798,7 @@ html {
         height: 75px;
         text-align: left;
         margin: 0 auto;
-        @media  (max-width: 4800px) {
+        @media (max-width: 4800px) {
           padding-top: 0.5rem;
         }
       }
@@ -861,7 +859,6 @@ animation
 */
 
 .UI__paralax {
-  
   &__scroll-container,
   &__scroll-area {
     max-width: 850px;
@@ -873,7 +870,6 @@ animation
     overflow: auto;
 
     scroll-snap-type: y mandatory;
-    
   }
 
   &__scroll-area {
@@ -883,7 +879,7 @@ animation
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    
+
     color: var($--Brand-Color-Copy-Body);
     &:nth-of-type(1) {
       background: #49b293;
@@ -901,30 +897,30 @@ animation
       background: #8360a6;
     }
   }
-  &__content-title{
+  &__content-title {
     @extend .UI__utility__subtitle-copy;
     margin: 2rem 0;
     display: flex;
-    flex-flow: row; 
-    line-height: 1.1; 
+    flex-flow: row;
+    line-height: 1.1;
     gap: 5px;
     justify-content: center;
     align-items: baseline;
     text-align: center;
-    
-    @media  (max-width: 640px) {
-      flex-flow: column; 
-     
+
+    @media (max-width: 640px) {
+      flex-flow: column;
+
       text-align: center;
       align-items: center;
-    } 
-      }
-  &__content-copy{
+    }
+  }
+  &__content-copy {
     @extend .UI__utility__body-copy;
     margin-bottom: 1rem;
     font-style: italic;
   }
-  
+
   // end paralax
 }
 
