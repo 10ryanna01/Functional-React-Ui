@@ -12,8 +12,8 @@ export default function CardsTemplate(props) {
                   src={movie.Poster}
                   alt={`${movie.Title} Poster`}
                   className="UI__card__body__image__asset"
-                  width="auto"
-                  height="auto"
+                  width="275px"
+                  height="100%"
                 />
               
               <div className="UI__card__body__copy">
