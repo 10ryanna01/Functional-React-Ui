@@ -1,5 +1,5 @@
 {
-  "homepage": "https://10ryanna01.github.com/Functional-React-UI",
+  "homepage": "https://10ryanna01.github.com/Functional-React-Ui/",
   "name": "ui-api-datademo",
   "version": "0.1.0",
   "private": true,
@@ -29,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages/root -d build"
 
   },
   "eslintConfig": {
