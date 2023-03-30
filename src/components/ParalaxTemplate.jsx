@@ -3,13 +3,26 @@ import React from "react";
 export default function ParalaxTemplate() {
   return (
     <>
-      <h2 className="UI__paralax__content-title"> Chatbot  @
-      <a href="https://iask.ai/" title="visit iAsk.Ai" target="_blank" without rel="noreferrer" className="UI__utility__copy-feature-link">iAsk.Ai</a>
+      <h2 className="UI__paralax__content-title">
+        {" "}
+        Chatbot @
+        <a
+          href="https://iask.ai/"
+          title="visit iAsk.Ai"
+          target="_blank"
+          without
+          rel="noreferrer"
+          className="UI__utility__copy-feature-link"
+        >
+          iAsk.Ai
+        </a>
       </h2>
 
       <div class="UI__paralax__scroll-container">
         <div class="UI__paralax__scroll-area">
-          <h1 className="UI__paralax__content-title">what do you think of internet explorer?</h1>
+          <h1 className="UI__paralax__content-title">
+            what do you think of internet explorer?
+          </h1>
           <p className="UI__paralax__content-copy">
             One of the main criticisms of Internet Explorer is that it has had a
             history of security vulnerabilities and has been prone to attacks by
@@ -25,7 +38,9 @@ export default function ParalaxTemplate() {
           </p>
         </div>
         <div class="UI__paralax__scroll-area">
-          <h1 className="UI__paralax__content-title">what is the best static site generator?</h1>
+          <h1 className="UI__paralax__content-title">
+            what is the best static site generator?
+          </h1>
           <p className="UI__paralax__content-copy">
             There are many static site generators available, each with its own
             strengths and weaknesses. The "best" one for you will depend on your
@@ -41,7 +56,9 @@ export default function ParalaxTemplate() {
           </p>
         </div>
         <div class="UI__paralax__scroll-area">
-          <h1 className="UI__paralax__content-title">what the coolest front end technology?</h1>
+          <h1 className="UI__paralax__content-title">
+            what the coolest front end technology?
+          </h1>
           <p className="UI__paralax__content-copy">
             As an AI language model, I do not have personal opinions or
             preferences, but I can provide information about some of the most
@@ -57,7 +74,9 @@ export default function ParalaxTemplate() {
           </p>
         </div>
         <div class="UI__paralax__scroll-area">
-          <h1 className="UI__paralax__content-title">what is your favorite internet browser?</h1>
+          <h1 className="UI__paralax__content-title">
+            what is your favorite internet browser?
+          </h1>
 
           <p className="UI__paralax__content-copy">
             There are several internet browsers available, including Google

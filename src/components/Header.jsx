@@ -3,18 +3,15 @@ import { Outlet } from "react-router-dom";
 import { Logo } from "../assets/Index";
 import AccountNav from "./AccountNav";
 import MainNav from "./MainNav";
-import ToggleTheme from "./ToggleTheme"; 
+import ToggleTheme from "./ToggleTheme";
 import { DarkModeContext } from "../context/DarkModeContext";
 import "../styles/styles.scss";
- 
 
 export default function Header() {
   const [darkMode, setDarkMode] = useContext(DarkModeContext);
 
   return (
     <>
-    
-
       <div
         className={`UI  ${
           darkMode ? "UI__toggle-theme__dark" : " UI__toggle-theme__light"

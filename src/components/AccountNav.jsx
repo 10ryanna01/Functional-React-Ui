@@ -41,12 +41,10 @@ export default function AccountNav({
 
   useEffect(() => {
     let handleExitUserSignUp = (e) => {
-      
       if (!userSignUpRef.current.contains(e.target)) {
         setUserSignUp(false);
         // setCollapseMobileNav("");
         setApplyOverlay(false);
-      
       }
     };
 
@@ -61,7 +59,8 @@ export default function AccountNav({
       <div className="UI__header__acc-nav">
         {!logUserIn ? (
           <div className="UI__header__acc-nav__list">
-            <button aria-label="sign up button"
+            <button
+              aria-label="sign up button"
               className=" UI__utility__button-reset UI__header__acc-nav__list__item"
               onClick={handleSignUpStepper}
             >
@@ -74,7 +73,11 @@ export default function AccountNav({
               </h3>
             </button>
 
-            <button   aria-label="sign in button" className="UI__utility__button-reset" onClick={handleLogIn}>
+            <button
+              aria-label="sign in button"
+              className="UI__utility__button-reset"
+              onClick={handleLogIn}
+            >
               <IconLogin className="UI__header__acc-nav__list__item__icon" />
               <h3
                 className="UI__header__acc-nav__list__item__copy"
@@ -86,14 +89,18 @@ export default function AccountNav({
           </div>
         ) : (
           <>
-            <button   aria-label="settings button" className="UI__utility__button-reset">
+            <button
+              aria-label="settings button"
+              className="UI__utility__button-reset"
+            >
               <IconSettings className="UI__header__acc-nav__list__item__icon" />
               <h3 className="UI__header__acc-nav__list__item__copy">
                 {" "}
                 settings{" "}
               </h3>
             </button>
-            <button  aria-label="logout button"
+            <button
+              aria-label="logout button"
               className="UI__utility__button-reset"
               onClick={handleLogOut}
             >

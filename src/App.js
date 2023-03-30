@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import "./styles/styles.scss";
-import Header from "./components/Header";  
+import Header from "./components/Header";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -10,7 +10,7 @@ import {
 import Home from "./pages/Home";
 import New from "./pages/New";
 import Explore from "./pages/Explore";
-import FAQ from "./pages/Faq"; 
+import FAQ from "./pages/Faq";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,15 +21,12 @@ const router = createBrowserRouter(
       <Route path="Faq" element={<FAQ />} />
     </Route>
   )
-); 
+);
 
-
-
-function App() { 
+function App() {
   return (
     <>
-
-      <RouterProvider  router={router} />
+      <RouterProvider router={router} />
     </>
   );
 }
