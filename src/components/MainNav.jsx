@@ -21,17 +21,17 @@ export default function MainNav() {
   const mappedNavListItems = [
     {
       navName: "new",
-      navItemLink: "/new",
+      navItemLink: "/Functional-React-Ui/new",
       navItemTitleText: "click here to go to new",
     },
     {
       navName: "Explore",
-      navItemLink: "/explore",
+      navItemLink: "/Functional-React-Ui/explore",
       navItemTitleText: "click here to go to Explore",
     },
     {
       navName: "ask the AI",
-      navItemLink: "/faq",
+      navItemLink: "/Functional-React-Ui/faq",
       navItemTitleText: "click here to go to FAQ",
     },
   ];
