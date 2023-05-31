@@ -1,7 +1,7 @@
 export default function LiveSearch(props) {
   const searchlabelText = "search for movies";
   const handleOnChangeSearch = (event) => {
-    props.setSearchValue(event.target.value);
+    props.setSearchValue(event.target.value.toString().toLowerCase());
   };
 
   return (
@@ -16,6 +16,7 @@ export default function LiveSearch(props) {
           </label>
 
           <input
+            onKeyDown={handleOnChangeSearch}
             onChange={handleOnChangeSearch}
             value={props.value}
             className="UI__form__content__input-search"
