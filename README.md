@@ -1,4 +1,4 @@
-# see the what it all lookes like @ the  [Live Link](https://ra-movie-db-ui-demo.surge.sh/) 🎉✨
+# See The [Live Link Demo](https://ra-movie-db-ui-demo.surge.sh/) 🎉✨
 
 # Getting Started with Create React App
 
